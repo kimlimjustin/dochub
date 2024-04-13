@@ -25,7 +25,7 @@
         "docs": "yarn --cwd ./docs start",
         "pretest": "yarn compile",
         "test": "jest",
-        "copyfiles": "python3 ./scripts/copyfiles.py",
+        "copyfiles": "./scripts/run-command.sh ./scripts/copyfiles.py",
         "compile": "webpack && yarn sass && yarn copyfiles",
         "compile:watch": "webpack --watch",
         "crowdin": "crowdin",
@@ -40,7 +40,7 @@
         "build": "tauri build",
         "postbuild": "node scripts/after_workflow.js",
         "postinstall": "husky install",
-        "fakefiles": "python3 scripts/generate-fake-files.py 1000"
+        "fakefiles": "./scripts/run-command.sh ./scripts/generate-fake-files.py 1000"
     },
     "workspaces": [
         "packages/*"
