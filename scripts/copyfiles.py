@@ -5,7 +5,7 @@ import os
 # Define the source and destination paths
 src_extensions = [".ts", ".tsx", ".scss"]
 src_paths = ["./src/**/*", "./src/lib/**/*", "./build/**/*"]
-dest_path = "out"
+dest_path = "out/src"
 
 # Copy the files
 for src_path in src_paths:
