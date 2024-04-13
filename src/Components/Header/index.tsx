@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
 import SubHeader from "./SubHeader";
 import { getStandardPath } from "../../Helpers/paths";
 import { fetchFilesRequest, updateHistoryIdxRequest } from "../../Store/ActionCreators/DirectoryActionCreators";
 import { createTab, deleteTab, setActiveTab } from "../../Store/ActionCreators/TabActionCreators";
-import { IAppState } from "../../Store/Reducers";
+import { useAppDispatch, useAppSelector } from "../../Store/Hooks";
 import { ThemedButton, ThemedDiv, ThemedSpan } from "../Theme";
 import { closeWindowRequest, maximizeWindowRequest, minimizeWindowRequest } from "../../Store/ActionCreators/WindowActionCreators";
+
 let tabId = 0;
+
 export interface ITab {
     name: string;
     path: string;
@@ -16,11 +17,11 @@ export interface ITab {
 }
 
 const Header = () => {
-    const dispatch = useDispatch();
-    const homeDirectory = useSelector<IAppState, IAppState["favorites"]["Home"]>((state) => state.favorites.Home);
-    const tabs = useSelector<IAppState, IAppState["tabs"]["tabs"]>((state) => state.tabs.tabs);
-    const activeTab = useSelector<IAppState, IAppState["tabs"]["activeTab"]>((state) => state.tabs.activeTab);
-    const directoryHistoryIdx = useSelector<IAppState, IAppState["directory"]["historyIdx"]>((state) => state.directory.historyIdx);
+    const dispatch = useAppDispatch();
+    const homeDirectory = useAppSelector((state) => state.favorites.Home);
+    const tabs = useAppSelector((state) => state.tabs.tabs);
+    const activeTab = useAppSelector((state) => state.tabs.activeTab);
+    const directoryHistoryIdx = useAppSelector((state) => state.directory.historyIdx);
 
     const createNewTab = () => {
         const newTab = { name: "New Tab", path: homeDirectory, id: ++tabId };
