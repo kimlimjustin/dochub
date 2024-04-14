@@ -47,9 +47,8 @@ class OperationAPI {
             const { invoke } = require("@tauri-apps/api");
             if (await new DirectoryAPI(this.src).isDir()) {
                 return await invoke("remove_dir", { path: this.src });
-            } else {
-                return await invoke("remove_file", { path: this.src });
             }
+                return await invoke("remove_file", { path: this.src });
         }
     }
 

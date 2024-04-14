@@ -7,13 +7,13 @@
  */
 const IsValid = (obj: any): boolean => {
     if (obj === null || obj === undefined) return false;
-    else if (Array.isArray(obj)) {
+    if (Array.isArray(obj)) {
         if (obj.length === 0) return false;
-        else return true;
-    } else if (typeof obj === "object") {
+        return true;
+    }if (typeof obj === "object") {
         if (Object.keys(obj).length === 0) return false;
-        else return true;
-    } else if (obj) return true;
+        return true;
+    }if (obj) return true;
     return false;
 };
 export default IsValid;

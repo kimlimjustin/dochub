@@ -19,10 +19,9 @@ const extractExeIcon = (filePath: string): string => {
     // Cache the icon parsed from the exe
     if (fs.existsSync(ICON_FILE_NAME)) {
         return ICON_FILE_NAME;
-    } else {
+    }
         const buffer = extractIcon(filePath, "large");
         fs.writeFileSync(ICON_FILE_NAME, buffer);
         return ICON_FILE_NAME;
-    }
 };
 export default extractExeIcon;

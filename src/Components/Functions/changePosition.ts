@@ -23,7 +23,7 @@ const changePosition = async (newPath: string, forceChange = false, writeHistory
 
     if (newPath === _focusingTab.history[_focusingTab.currentIndex] && !forceChange) {
         return;
-    } else if (newPath === _focusingTab.history[_focusingTab.currentIndex + 1]) {
+    }if (newPath === _focusingTab.history[_focusingTab.currentIndex + 1]) {
         _focusingTab.currentIndex += 1;
     } else if (newPath === _focusingTab.history[_focusingTab.currentIndex - 1]) {
         _focusingTab.currentIndex -= 1;

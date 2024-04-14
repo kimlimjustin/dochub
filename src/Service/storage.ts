@@ -16,10 +16,9 @@ const set = async (key: string, value: any): Promise<void> => {
         data[key] = value;
         const { invoke } = require("@tauri-apps/api");
         return await invoke("write_data", { key, value });
-    } else {
+    }
         data[key] = value;
         localStorage.setItem(key, JSON.stringify(value));
-    }
 };
 
 /**
@@ -35,22 +34,19 @@ const get = async (key: string, force?: boolean): Promise<any> => {
     }
     if (Object.keys(data).includes(key) && !force) {
         return data[key];
-    } else {
+    }
         if (isTauri) {
             const { invoke } = require("@tauri-apps/api");
             const returnedData = (await invoke("read_data", { key })) as returnedType;
             data[key] = returnedData.data;
             return returnedData.status ? returnedData.data : {};
-        } else {
+        }
             const storedData = localStorage.getItem(key);
             if (storedData) {
                 data[key] = JSON.parse(storedData);
                 return data[key];
-            } else {
-                return {};
             }
-        }
-    }
+                return {};
 };
 
 /**

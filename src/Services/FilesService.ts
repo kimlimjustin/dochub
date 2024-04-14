@@ -100,7 +100,7 @@ export const cutFile = async (fileName: string, dest: string): Promise<void> => 
  */
 export const removeFile = async (fileName: string): Promise<void> => {
     if (isDirectory(fileName)) return removeNative(fileName, { recursive: true });
-    else return removeNative(fileName);
+    return removeNative(fileName);
 };
 
 /**

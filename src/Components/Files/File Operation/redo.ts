@@ -38,9 +38,8 @@ const Redo = async (): Promise<void> => {
                         ))
                     )
                         return;
-                    else {
+                    
                         await new OperationAPI(dest).unlink();
-                    }
                 }
                 await new OperationAPI(source, dest).rename();
             }

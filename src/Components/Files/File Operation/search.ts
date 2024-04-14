@@ -91,7 +91,7 @@ const Search = async (): Promise<void> => {
         clearTimeout(listener);
         if (e.ctrlKey && e.key === "f") {
             return;
-        } else if (e.key === "Enter") {
+        }if (e.key === "Enter") {
             const value = (e.target as HTMLInputElement).value;
             if (value !== being_watch) {
                 processSearch(value, await getFocusingPath());

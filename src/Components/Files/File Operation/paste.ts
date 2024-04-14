@@ -61,9 +61,8 @@ const Paste = async (target: string): Promise<void> => {
                         ))
                     )
                         return;
-                    else {
+                    
                         await new OperationAPI(dest).unlink();
-                    }
                 }
                 await new OperationAPI(file, dest).cut();
                 break;

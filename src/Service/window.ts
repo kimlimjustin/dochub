@@ -15,13 +15,12 @@ const listenWindowClose = (): Promise<void> => {
                 appWindow.close();
             });
         });
-    } else {
+    }
         return new Promise((resolve) => {
             window.addEventListener("beforeunload", () => {
                 resolve();
             });
         });
-    }
 };
 
 const createNewWindow = (): void => {

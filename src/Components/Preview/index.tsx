@@ -45,23 +45,22 @@ const Preview = ({ filePath }: IPreviewProps): JSX.Element => {
 
     if (extensionMatches(PDF_TYPES, extension)) {
         return <PdfViewer filePath={filePath} />;
-    } else if (extensionMatches(HTML_TYPES, extension)) {
+    }if (extensionMatches(HTML_TYPES, extension)) {
         return <HtmlViewer filePath={filePath} />;
-    } else if (extensionMatches(DOCX_TYPES, extension)) {
+    }if (extensionMatches(DOCX_TYPES, extension)) {
         return <DocxViewer filePath={filePath} />;
-    } else if (extensionMatches(XLSX_TYPES, extension)) {
+    }if (extensionMatches(XLSX_TYPES, extension)) {
         return <XlsxViewer filePath={filePath} />;
-    } else if (extensionMatches(IMAGE_TYPES, extension)) {
+    }if (extensionMatches(IMAGE_TYPES, extension)) {
         return <ImageViewer filePath={filePath} />;
-    } else if (extensionMatches(VIDEO_TYPES, extension)) {
+    }if (extensionMatches(VIDEO_TYPES, extension)) {
         return <VideoViewer filePath={filePath} />;
-    } else if (extensionMatches(PLAINTEXT_TYPES, extension)) {
+    }if (extensionMatches(PLAINTEXT_TYPES, extension)) {
         return <PlaintextViewer filePath={filePath} />;
-    } else if (extensionMatches(MARKDOWN_TYPES, extension)) {
+    }if (extensionMatches(MARKDOWN_TYPES, extension)) {
         return <MarkdownViewer filePath={filePath} />;
-    } else {
-        return <div>{JSON.stringify(file)}</div>;
     }
+        return <div>{JSON.stringify(file)}</div>;
 };
 
 export default Preview;
