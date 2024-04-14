@@ -10,7 +10,7 @@ const writeTextToClipboard = async (text: string): Promise<void> => {
         const { clipboard } = require("@tauri-apps/api");
         return await clipboard.writeText(text);
     }
-        return await navigator.clipboard.writeText(text);
+    return await navigator.clipboard.writeText(text);
 };
 
 /**
@@ -22,6 +22,6 @@ const readTextFromClipboard = async (): Promise<string> => {
         const { clipboard } = require("@tauri-apps/api");
         return await clipboard.readText();
     }
-        return await navigator.clipboard.readText();
+    return await navigator.clipboard.readText();
 };
 export { writeTextToClipboard, readTextFromClipboard };

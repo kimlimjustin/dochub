@@ -21,8 +21,8 @@ const getAvailableFonts = async (): Promise<string[]> => {
         const { invoke } = require("@tauri-apps/api");
         return await invoke("get_available_fonts");
     }
-        const fonts = await (await fetch(GET_AVAILABLE_FONTS_ENDPOINT, { method: "GET" })).json();
-        return fonts;
+    const fonts = await (await fetch(GET_AVAILABLE_FONTS_ENDPOINT, { method: "GET" })).json();
+    return fonts;
 };
 let listened = false;
 const listenStylesheetChange = async (cb: (stylesheet: JSON) => void): Promise<void> => {

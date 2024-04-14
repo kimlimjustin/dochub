@@ -81,8 +81,8 @@ class DirectoryAPI {
             const { invoke } = require("@tauri-apps/api");
             return await invoke("file_exist", { filePath: this.dirName });
         }
-            const exists = await (await fetch(CHECK_EXIST_ENDPOINT + this.dirName, { method: "GET" })).json();
-            return exists;
+        const exists = await (await fetch(CHECK_EXIST_ENDPOINT + this.dirName, { method: "GET" })).json();
+        return exists;
     }
     /**
      * Create dir if not exists
@@ -135,8 +135,8 @@ class DirectoryAPI {
             const { invoke } = require("@tauri-apps/api");
             return await invoke("get_dir_size", { dir: this.dirName });
         }
-            const size = await (await fetch(GET_DIR_SIZE_ENDPOINT + this.dirName, { method: "GET" })).json();
-            return size;
+        const size = await (await fetch(GET_DIR_SIZE_ENDPOINT + this.dirName, { method: "GET" })).json();
+        return size;
     }
 
     /**

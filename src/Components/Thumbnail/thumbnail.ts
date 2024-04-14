@@ -82,11 +82,13 @@ const fileThumbnail = async (filePath: string, category = "folder", HTMLFormat =
             if (imageAsThumbnail) {
                 return imageThumbnail(filePath, HTMLFormat, true);
             }
-                return imageThumbnail(DEFAULT_IMAGE_THUMBNAIL, HTMLFormat);
-        }if (VIDEO_TYPES.indexOf(ext) !== -1) {
+            return imageThumbnail(DEFAULT_IMAGE_THUMBNAIL, HTMLFormat);
+        }
+        if (VIDEO_TYPES.indexOf(ext) !== -1) {
             const assetSrc = new FileAPI(filePath).readAsset();
             return HTMLFormat ? await videoPreview(assetSrc) : assetSrc;
-        }if ((appearance?.extractExeIcon ?? false) && (ext === "exe" || ext === "msi")) {
+        }
+        if ((appearance?.extractExeIcon ?? false) && (ext === "exe" || ext === "msi")) {
             return imageThumbnail(await new FileAPI(filePath).extractIcon(), HTMLFormat, true);
         }
     }
@@ -102,13 +104,13 @@ const fileThumbnail = async (filePath: string, category = "folder", HTMLFormat =
             HTMLFormat,
         );
     }
-        if (category !== "folder") {
-            const _key = `${category}-${filename}`;
-            if (Object.keys(customThumbnail).indexOf(_key) !== -1) {
-                return imageThumbnail(customThumbnail[_key], HTMLFormat);
-            }
+    if (category !== "folder") {
+        const _key = `${category}-${filename}`;
+        if (Object.keys(customThumbnail).indexOf(_key) !== -1) {
+            return imageThumbnail(customThumbnail[_key], HTMLFormat);
         }
-        return imageThumbnail(folderThumbnailTrie.search(basename) ?? defaultThumbnail.DEFAULT_FOLDER_THUMBNAIL, HTMLFormat);
+    }
+    return imageThumbnail(folderThumbnailTrie.search(basename) ?? defaultThumbnail.DEFAULT_FOLDER_THUMBNAIL, HTMLFormat);
 };
 
 export default fileThumbnail;

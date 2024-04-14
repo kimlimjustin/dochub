@@ -40,8 +40,8 @@ const Undo = async (): Promise<void> => {
                         ))
                     )
                         return;
-                    
-                        await new OperationAPI(source).unlink();
+
+                    await new OperationAPI(source).unlink();
                 }
                 await new OperationAPI(dest, source).rename();
                 break;

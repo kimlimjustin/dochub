@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { IAppState } from "../../Store/Reducers";
+import type { IAppState } from "../../Store/Reducers";
 import formatBytes from "../Functions/filesize";
 
 const Infobar = () => {

@@ -60,8 +60,8 @@ class FileAPI {
             const { invoke } = require("@tauri-apps/api");
             return await invoke("open_file", { filePath: this.fileName });
         }
-            await fetch(OPEN_FILE_ENDPOINT + this.fileName, { method: "GET" });
-            return;
+        await fetch(OPEN_FILE_ENDPOINT + this.fileName, { method: "GET" });
+        return;
     }
     /**
      * Get tauri url of local assets
@@ -91,8 +91,8 @@ class FileAPI {
             const { invoke } = require("@tauri-apps/api");
             return await invoke("file_exist", { filePath: this.fileName });
         }
-            const exists = await (await fetch(CHECK_EXIST_ENDPOINT + this.fileName, { method: "GET" })).json();
-            return exists;
+        const exists = await (await fetch(CHECK_EXIST_ENDPOINT + this.fileName, { method: "GET" })).json();
+        return exists;
     }
     /**
      * Create file if it doesn't exist
@@ -107,7 +107,7 @@ class FileAPI {
                 });
                 return await invoke("create_file", { filePath: this.fileName });
             }
-                return;
+            return;
         }
     }
     /**
@@ -160,10 +160,10 @@ class FileAPI {
                 files: this.fileName,
             });
         }
-            const paths = Array.isArray(this.fileName) ? this.fileName.join("%2c-%2c") : this.fileName;
-            console.log(paths);
-            const size = await (await fetch(CALCULATE_DIRS_SIZE_ENDPOINT + paths, { method: "GET" })).json();
-            return size;
+        const paths = Array.isArray(this.fileName) ? this.fileName.join("%2c-%2c") : this.fileName;
+        console.log(paths);
+        const size = await (await fetch(CALCULATE_DIRS_SIZE_ENDPOINT + paths, { method: "GET" })).json();
+        return size;
     }
 
     /**

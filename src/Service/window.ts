@@ -16,11 +16,11 @@ const listenWindowClose = (): Promise<void> => {
             });
         });
     }
-        return new Promise((resolve) => {
-            window.addEventListener("beforeunload", () => {
-                resolve();
-            });
+    return new Promise((resolve) => {
+        window.addEventListener("beforeunload", () => {
+            resolve();
         });
+    });
 };
 
 const createNewWindow = (): void => {

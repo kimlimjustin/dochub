@@ -10,10 +10,12 @@ const IsValid = (obj: any): boolean => {
     if (Array.isArray(obj)) {
         if (obj.length === 0) return false;
         return true;
-    }if (typeof obj === "object") {
+    }
+    if (typeof obj === "object") {
         if (Object.keys(obj).length === 0) return false;
         return true;
-    }if (obj) return true;
+    }
+    if (obj) return true;
     return false;
 };
 export default IsValid;

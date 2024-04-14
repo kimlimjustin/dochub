@@ -4,7 +4,7 @@ import { ThemedButton, ThemedDiv } from "../Theme";
 import { useDispatch } from "react-redux";
 import { fileOperation } from "../../Store/ActionCreators/FilesActionCreators";
 import { useSelector } from "react-redux";
-import { IAppState } from "../../Store/Reducers";
+import type { IAppState } from "../../Store/Reducers";
 
 const OperationBar = () => {
     const dispatch = useDispatch();
