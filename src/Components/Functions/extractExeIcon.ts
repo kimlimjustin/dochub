@@ -1,6 +1,6 @@
 const extractExeIcon = (filePath: string): string => {
-    const fs = require("fs");
-    const path = require("path");
+    const fs = require("node:fs");
+    const path = require("node:path");
     const { extractIcon } = require("../../Lib/extracticon/bindings");
     const electron = require("electron");
     const basename = filePath.split(/[\\/]/)[filePath.split(/[\\/]/).length - 1];

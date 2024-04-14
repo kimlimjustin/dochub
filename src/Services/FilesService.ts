@@ -1,4 +1,4 @@
-import { Buffer } from "buffer";
+import { Buffer } from "node:buffer";
 import { invoke } from "@tauri-apps/api/core";
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { copyFile as copyFileNative, readTextFile, remove as removeNative, rename as renameFileNative } from "@tauri-apps/plugin-fs";
