@@ -12,7 +12,7 @@ import ConfirmDialog from "../../Prompt/confirm";
 import PromptError from "../../Prompt/error";
 
 const isValidURL = (text: string) => {
-    let url;
+    let url: URL;
     try {
         url = new URL(text);
     } catch (_) {

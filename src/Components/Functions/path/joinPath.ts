@@ -5,7 +5,7 @@
  */
 const joinPath = (...args: string[]): string => {
     if (args.length === 0) return ".";
-    let joined;
+    let joined: string | undefined;
     for (let i = 0; i < args.length; i++) {
         const arg = args[i];
         if (arg.length > 0) {
