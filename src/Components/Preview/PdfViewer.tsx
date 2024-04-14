@@ -14,7 +14,7 @@ const PdfViewer = ({ filePath }: IPdfViewerProps): JSX.Element => {
 
     useEffect(() => {
         dispatch(readAssetRequest(filePath));
-    }, [filePath]);
+    }, [filePath, dispatch]);
 
     if (!content) return <div>Loading...</div>;
 

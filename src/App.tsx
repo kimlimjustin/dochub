@@ -26,15 +26,13 @@ const App = () => {
 
     const [isLoaded, setIsLoaded] = useState(false); // TODO REPLACE WITH SKELETON LOADING
 
-    const setCurrentDirectory = (path: string) => dispatch(setActiveTab({ ...activeTab, path }));
-
     // Waits for homeDirectory to load on initial favorites request
     useEffect(() => {
-        if (homeDirectory) {
+        if (homeDirectory && activeTab.path !== homeDirectory) {
             setIsLoaded(true);
-            setCurrentDirectory(homeDirectory);
+            dispatch(setActiveTab({ ...activeTab, path: homeDirectory }));
         }
-    }, [homeDirectory]);
+    }, [homeDirectory, dispatch, activeTab]);
 
     if (!isLoaded) return <div>Loading...</div>;
 

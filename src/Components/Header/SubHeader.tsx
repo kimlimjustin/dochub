@@ -19,7 +19,7 @@ const SubHeader = ({ activeTab, handleBack, handleForward, handlePathChange, han
     useEffect(() => {
         if (JSON.stringify(activeTab) === JSON.stringify(tempTab)) return;
         setTempTab(activeTab);
-    }, [activeTab]);
+    }, [activeTab, tempTab]);
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault();
