@@ -1345,7 +1345,7 @@
   resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-2.0.0-beta.6.tgz#7ff0092b868db3627ccfe78b2648bdc67a9ca3e9"
   integrity sha512-ay3kAXYQoqC3rX4Vr3y6uGwrBhRPM7UQqZ9wr1VYzN6lkcMIcu7+UBvytmcfXDlVctqFoMQJafn6+dK/Oqh8+Q==
 
-"@tauri-apps/api@^2.0.0-beta.14":
+"@tauri-apps/api@^2.0.0-beta.7":
   version "2.0.0-beta.7"
   resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-2.0.0-beta.7.tgz#a80a3ffc24e6ec8dbdc8131dc3e68d8f4342293d"
   integrity sha512-cM7SJQP4DBkLLMOdybLFYUURWn/tng2FEdAnXlu42f3NhFxKL4KVeeQTkuwlgC7ePwwwvDSqiXGiF+dKOadY7w==
@@ -1400,7 +1400,7 @@
   resolved "https://registry.yarnpkg.com/@tauri-apps/cli-win32-x64-msvc/-/cli-win32-x64-msvc-2.0.0-beta.12.tgz#cb4f3a8c5b4fd86cf9f03ba1e60fea292660c466"
   integrity sha512-Z/++lJ1FraoN1ZaNxYuCynNm7SyEGC+yd/adYQvhaQyudZa5HW/8eFkLx8FRcIQkEkSqLBkHf9VpwjnTDBVlwQ==
 
-"@tauri-apps/cli@^2.0.0-beta.14":
+"@tauri-apps/cli@^2.0.0-beta.12":
   version "2.0.0-beta.12"
   resolved "https://registry.yarnpkg.com/@tauri-apps/cli/-/cli-2.0.0-beta.12.tgz#5d4d6d41a4c86d1fdc7df42ec83baad88ae40879"
   integrity sha512-MFh4Z093O+PXWI6KFR8E2zIOgpJ4zL8waDhFXVQgBpqiD4ieiqywjmbmNIWkVqYBGAia7ZI0juxpkZSyXT4f1A==
@@ -1430,7 +1430,7 @@
   dependencies:
     "@tauri-apps/api" "2.0.0-beta.4"
 
-"@tauri-apps/plugin-os@^2.0.0-beta.3":
+"@tauri-apps/plugin-os@^2.0.0-beta.2":
   version "2.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/@tauri-apps/plugin-os/-/plugin-os-2.0.0-beta.2.tgz#e3490c7874a2c6e5a3e5dca3b61839d8960baf9b"
   integrity sha512-rhJ/sEYvEAeMUQt6UiFODi5dT6F/ciNZYBQrbFTwhIqwQ2fp87dmzsscMy7FQ9LOor8AW+kL1KWoadfgzA/mSA==
@@ -2953,7 +2953,7 @@ colorette@^2.0.14:
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.20.tgz#9eb793e6833067f7235902fcd3b09917a000a95a"
   integrity sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==
 
-colors@1.4.0:
+colors@latest:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
   integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
@@ -6051,13 +6051,13 @@ lines-and-columns@~2.0.3:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-2.0.4.tgz#d00318855905d2660d8c0822e3f5a4715855fc42"
   integrity sha512-wM1+Z03eypVAVUCE7QdSqpVIvelbOakn1M0bPDoA4SGWPx3sNDVUiMo3L6To6WWGClB7VyXnhQ4Sn7gxiJbE6A==
 
-live-server@^1.2.1:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/live-server/-/live-server-1.2.2.tgz#20b4fe5c2ca886faa61813310e28680804f48dad"
-  integrity sha512-t28HXLjITRGoMSrCOv4eZ88viHaBVIjKjdI5PO92Vxlu+twbk6aE0t7dVIaz6ZWkjPilYFV6OSdMYl9ybN2B4w==
+live-server@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/live-server/-/live-server-1.2.1.tgz#670630dd409d22fe9c513ab1c1894686c757153e"
+  integrity sha512-Yn2XCVjErTkqnM3FfTmM7/kWy3zP7+cEtC7x6u+wUzlQ+1UW3zEYbbyJrc0jNDwiMDZI0m4a0i3dxlGHVyXczw==
   dependencies:
     chokidar "^2.0.4"
-    colors "1.4.0"
+    colors latest
     connect "^3.6.6"
     cors latest
     event-stream "3.3.4"
