@@ -68,6 +68,7 @@ const Sidebar = () => {
                                 data-path={mount_point}
                                 className="sidebar-hover-effect sidebar-nav-item drive-item"
                                 onClick={() => navigateToPath(mount_point.replace(/\\/g, "/"))}
+                                onKeyUp={() => navigateToPath(mount_point.replace(/\\/g, "/"))}
                                 key={mount_point + name}
                             >
                                 <div className="sidebar-icon" />
