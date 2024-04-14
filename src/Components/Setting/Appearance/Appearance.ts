@@ -319,7 +319,7 @@ const Appearance = async (): Promise<void> => {
     });
     settingsMain.querySelector('[name="theme"]')?.addEventListener("change", async (event: Event & { target: HTMLInputElement }) => {
         const themes = (await Storage.get("theme")) ?? {};
-        themes["theme"] = event.target.value;
+        themes.theme = event.target.value;
         Storage.set("theme", themes);
         updateTheme("*");
     });

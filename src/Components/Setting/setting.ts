@@ -53,12 +53,12 @@ const Setting = async (): Promise<void> => {
                         break;
                 }
                 const appearance = (await Storage.get("appearance")) ?? {};
-                appearance["activeSettingsTab"] = item;
+                appearance.activeSettingsTab = item;
                 Storage.set("appearance", appearance);
             });
         }
         const appearance = (await Storage.get("appearance")) ?? {};
-        const activeSettingsTab = appearance["activeSettingsTab"] ?? defaultTab;
+        const activeSettingsTab = appearance.activeSettingsTab ?? defaultTab;
         setActiveTab(activeSettingsTab);
         switch (activeSettingsTab) {
             case "Appearance":

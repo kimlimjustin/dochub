@@ -4,7 +4,7 @@ const extractExeIcon = (filePath: string): string => {
     const { extractIcon } = require("../../Lib/extracticon/bindings");
     const electron = require("electron");
     const basename = filePath.split(/[\\/]/)[filePath.split(/[\\/]/).length - 1];
-    const app = electron.app || (electron.remote && electron.remote.app) || null;
+    const app = electron.app || (electron.remote?.app) || null;
     const EXE_ICON_CACHE_DIR = path.join(app.getPath("userData"), "Cache/Exe Icon");
 
     // Create cache directory if not exist

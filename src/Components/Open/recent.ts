@@ -22,8 +22,8 @@ interface RecentType {
 const Recent = async (): Promise<void> => {
     startLoading();
     // Preference data
-    const layout = (await Storage.get("layout"))?.["Recent"] ?? (await Storage.get("appearance"))?.layout ?? "s";
-    const sort = (await Storage.get("sort"))?.["Recent"] ?? "F";
+    const layout = (await Storage.get("layout"))?.Recent ?? (await Storage.get("appearance"))?.layout ?? "s";
+    const sort = (await Storage.get("sort"))?.Recent ?? "F";
     // Get the main element
     const MAIN_ELEMENT = GET_TAB_ELEMENT();
     MAIN_ELEMENT.innerHTML = "";
