@@ -150,8 +150,8 @@ const SelectInit = (): void => {
         if (
             !(e.target as HTMLElement).className.split(" ").some((c) => /file/.test(c)) &&
             //If user doesn't drag the mouse
-            e.pageX - mainBoxBounds.left == selectingOrigin.x &&
-            e.pageY - mainBoxBounds.top == selectingOrigin.y
+            e.pageX - mainBoxBounds.left === selectingOrigin.x &&
+            e.pageY - mainBoxBounds.top === selectingOrigin.y
         ) {
             unselectAllSelected();
             latestSelected = null;
@@ -195,10 +195,10 @@ const SelectInit = (): void => {
         const POSITION = new Point(e.pageX - mainBoxBounds.left, e.pageY - mainBoxBounds.top);
         if (isSelecting) {
             const DIRECTION = await getSelectingDivDirection(selectingOrigin, POSITION);
-            let top: number;
-            let right: number;
-            let bottom: number;
-            let left: number;
+            let top: number | string;
+            let right: number | string;
+            let bottom: number | string;
+            let left: number | string;
             const height = Math.abs(selectingOrigin.y - POSITION.y);
             const width = Math.abs(selectingOrigin.x - POSITION.x);
 
@@ -233,22 +233,22 @@ const SelectInit = (): void => {
             }
 
             //Updating selecting div bounds manually so we don't call getBoundingClientRect each mousemove
-            selectingDivBounds.bottom = bottom == "auto" ? mainBoxBounds.height - (top as number) - height : (bottom as number);
-            selectingDivBounds.top = top == "auto" ? mainBoxBounds.height - (bottom as number) - height : (top as number);
-            selectingDivBounds.left = left == "auto" ? mainBoxBounds.width - (right as number) - width : (left as number);
-            selectingDivBounds.right = right == "auto" ? mainBoxBounds.width - (left as number) - width : (right as number);
+            selectingDivBounds.bottom = bottom === "auto" ? mainBoxBounds.height - (top as number) - height : (bottom as number);
+            selectingDivBounds.top = top === "auto" ? mainBoxBounds.height - (bottom as number) - height : (top as number);
+            selectingDivBounds.left = left === "auto" ? mainBoxBounds.width - (right as number) - width : (left as number);
+            selectingDivBounds.right = right === "auto" ? mainBoxBounds.width - (left as number) - width : (right as number);
             selectingDivBounds.width = width;
             selectingDivBounds.height = height;
 
             selectingDiv.style.inset =
                 top +
-                (top == "auto" ? " " : "px ") +
+                (top === "auto" ? " " : "px ") +
                 right +
-                (right == "auto" ? " " : "px ") +
+                (right === "auto" ? " " : "px ") +
                 bottom +
-                (bottom == "auto" ? " " : "px ") +
+                (bottom === "auto" ? " " : "px ") +
                 left +
-                (left == "auto" ? " " : "px ");
+                (left === "auto" ? " " : "px ");
             selectingDiv.style.height = `${height}px`;
             selectingDiv.style.width = `${width}px`;
 
@@ -278,7 +278,7 @@ const SelectInit = (): void => {
                     }
                 }
             }
-            if (selected == 0) unselectAllSelected();
+            if (selected === 0) unselectAllSelected();
         }
     });
 
@@ -324,8 +324,8 @@ const getSelectingDivDirection = async (origin: Point, last: Point): Promise<dir
     const delta = origin.delta(last);
 
     return {
-        x: delta.x == 0 ? 0 : delta.x > 0 ? -1 : 1,
-        y: delta.y == 0 ? 0 : delta.y > 0 ? -1 : 1,
+        x: delta.x === 0 ? 0 : delta.x > 0 ? -1 : 1,
+        y: delta.y === 0 ? 0 : delta.y > 0 ? -1 : 1,
     };
 };
 /**
