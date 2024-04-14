@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 import File from "../File";
 import Preview from "../Preview";
 
-import { IAppState } from "../../Store/Reducers";
+import { useAppSelector } from "../../Store/Hooks";
 import { IFile } from "../../Typings/Store/files";
 import { ThemedDiv } from "../Theme";
 
@@ -20,8 +19,8 @@ export const sortFiles = (a: IFile, b: IFile): number => {
 };
 
 const MainView = ({ currentDirectory }: IMainViewProps) => {
-    const files = useSelector<IAppState, IAppState["files"]["files"]>((state) => state.files.files);
-    const filePreview = useSelector<IAppState, IAppState["files"]["filePreview"]>((state) => state.files.filePreview);
+    const files = useAppSelector((state) => state.files.files);
+    const filePreview = useAppSelector((state) => state.files.filePreview);
 
     return (
         <ThemedDiv componentName="mainBox" className="main-box">

@@ -12,6 +12,7 @@ import { StorageActions, StorageActionTypes } from "./storage";
 import { TabActions, TabActionTypes } from "./tab";
 import { WindowActions, WindowActionTypes } from "./window";
 import { SelectionActions, SelectionActionTypes } from "./selection";
+import store from "../../Store";
 
 export type Actions =
     | AppActions
@@ -44,3 +45,6 @@ export type ActionTypes =
     | TabActionTypes
     | WindowActionTypes
     | SelectionActionTypes;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

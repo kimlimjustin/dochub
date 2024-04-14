@@ -1,5 +1,4 @@
 import React, { MouseEvent } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 import GridFile from "./GridFile";
 import DetailFile from "./DetailFile";
@@ -7,7 +6,7 @@ import DetailFile from "./DetailFile";
 import { getStandardPath } from "../../Helpers/paths";
 import { openFileRequest, openFilePreview } from "../../Store/ActionCreators/FilesActionCreators";
 import { setActiveTab, updateTab } from "../../Store/ActionCreators/TabActionCreators";
-import { IAppState } from "../../Store/Reducers";
+import { useAppDispatch, useAppSelector } from "../../Store/Hooks";
 import FileMetaData from "../../Typings/fileMetaData";
 import { updateSelection } from "../../Store/ActionCreators/SelectionActionCreators";
 import { sortFiles } from "../MainView";
@@ -20,11 +19,11 @@ export interface IFileProps {
 }
 
 export const File = ({ mode, metadata }: IFileProps): JSX.Element => {
-    const dispatch = useDispatch();
-    const activeTab = useSelector<IAppState, IAppState["tabs"]["activeTab"]>((state) => state.tabs.activeTab);
-    const selected = useSelector<IAppState, IAppState["selection"]["selected"]>((state) => state.selection.selected);
-    const allFiles = useSelector<IAppState, IAppState["files"]["files"]>((state) => state.files.files);
-
+    const dispatch = useAppDispatch();
+    const activeTab = useAppSelector((state) => state.tabs.activeTab);
+    const selected = useAppSelector((state) => state.selection.selected);
+    const allFiles = useAppSelector((state) => state.files.files);
+    
     const handleFileSingleClick = (e: MouseEvent<HTMLButtonElement>, filePath: string) => {
         if (e.shiftKey) {
             const files = Object.values(allFiles).sort(sortFiles);

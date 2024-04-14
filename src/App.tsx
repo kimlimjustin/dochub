@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 import MainView from "./Components/MainView";
 import SettingsView from "./Components/SettingsView";
@@ -13,16 +12,16 @@ import Infobar from "./Components/Infobar";
 import OperationBar from "./Components/OperationBar";
 
 import { setActiveTab } from "./Store/ActionCreators/TabActionCreators";
-import { IAppState } from "./Store/Reducers";
+import { useAppDispatch, useAppSelector } from "./Store/Hooks";
 import "./Public/style.scss";
 import { ThemedDiv } from "./Components/Theme";
 
 const App = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const homeDirectory = useSelector<IAppState, IAppState["favorites"]["Home"]>((state) => state.favorites.Home);
-    const activeTab = useSelector<IAppState, IAppState["tabs"]["activeTab"]>((state) => state.tabs.activeTab);
-    const config = useSelector<IAppState, IAppState["config"]>((state) => state.config);
+    const homeDirectory = useAppSelector((state) => state.favorites.Home);
+    const activeTab = useAppSelector((state) => state.tabs.activeTab);
+    const config = useAppSelector((state) => state.config);
 
     const [isLoaded, setIsLoaded] = useState(false); // TODO REPLACE WITH SKELETON LOADING
 
