@@ -84,7 +84,7 @@ const Shortcut = (): void => {
                     searchingFileName = "";
                 }
                 searchingFileName += e.key.toLowerCase();
-                searchElement.placeholder = "⚡ " + searchingFileName;
+                searchElement.placeholder = `⚡ ${searchingFileName}`;
                 searchingFiles = null;
                 resetTimer();
                 unselectAllSelected();

@@ -18,7 +18,7 @@ class LocalesAPI {
     async build(): Promise<void> {
         this.AVAILABLE_LOCALES = localesInformation.availableLanguages;
         for (const locale of Object.values(this.AVAILABLE_LOCALES)) {
-            const localeJSON = await import("../Locales/" + (locale === "en-US" ? "base" : locale) + ".json");
+            const localeJSON = await import(`../Locales/${locale === "en-US" ? "base" : locale}.json`);
             this.LOCALES[locale] = localeJSON;
         }
     }

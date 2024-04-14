@@ -48,7 +48,7 @@ const Trash = async (filePaths: string[]): Promise<void> => {
     try {
         DeleteFiles(filePaths);
     } catch (err) {
-        PromptError("Failed to delete files/dirs", "Failed to move " + filePaths.join(", ") + ` to trash. [${err}]`);
+        PromptError("Failed to delete files/dirs", `Failed to move ${filePaths.join(", ")} to trash. [${err}]`);
     }
     if (platform !== "darwin") {
         OperationLog("delete", filePaths);

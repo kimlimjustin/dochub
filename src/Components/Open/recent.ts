@@ -87,12 +87,12 @@ const Recent = async (): Promise<void> => {
                 case "m":
                     fileGrid.classList.add("medium-grid-view");
                     displayName =
-                        recent.properties.basename.length > 30 ? recent.properties.basename.substring(0, 30) + "..." : recent.properties.basename;
+                        recent.properties.basename.length > 30 ? `${recent.properties.basename.substring(0, 30)}...` : recent.properties.basename;
                     break;
                 case "l":
                     fileGrid.classList.add("large-grid-view");
                     displayName =
-                        recent.properties.basename.length > 40 ? recent.properties.basename.substring(0, 40) + "..." : recent.properties.basename;
+                        recent.properties.basename.length > 40 ? `${recent.properties.basename.substring(0, 40)}...` : recent.properties.basename;
                     break;
                 case "d":
                     fileGrid.classList.add("detail-view");
@@ -101,7 +101,7 @@ const Recent = async (): Promise<void> => {
                 default:
                     fileGrid.classList.add("small-grid-view");
                     displayName =
-                        recent.properties.basename.length > 20 ? recent.properties.basename.substring(0, 20) + "..." : recent.properties.basename;
+                        recent.properties.basename.length > 20 ? `${recent.properties.basename.substring(0, 20)}...` : recent.properties.basename;
                     break;
             }
             fileGrid.setAttribute("draggable", "true");

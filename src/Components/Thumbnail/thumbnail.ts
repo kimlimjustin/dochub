@@ -93,7 +93,7 @@ const fileThumbnail = async (filePath: string, category = "folder", HTMLFormat =
 
     const filename = filePath.toLowerCase(); // Lowercase filename
     if (category === "contextmenu") {
-        return imageThumbnail(`contextmenu/${filePath + ".svg"}`);
+        return imageThumbnail(`contextmenu/${`${filePath}.svg`}`);
     }
 
     if (category === "file") {

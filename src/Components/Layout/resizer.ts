@@ -27,25 +27,25 @@ export const updateSidebarParameters = (updateSidebar = false) => {
     size = (size / sidebarDefaultExpandedSizeOld) * sidebarDefaultExpandedSize;
 
     const minimized = size < sidebarMinSnap || appearance.preferMinimizedSidebar;
-    resizeSidebar((minimized ? sidebarMinSize : size) + "px");
-    appearance.expandedSidebarWidth = Math.max(size, sidebarMinSnap) + "px";
+    resizeSidebar(`${minimized ? sidebarMinSize : size}px`);
+    appearance.expandedSidebarWidth = `${Math.max(size, sidebarMinSnap)}px`;
     Storage.set("appearance", appearance);
 };
 
 export const resizeSidebar = (size?: string) => {
     if (!size) {
         if (sidebar.offsetWidth === sidebarMinSize) {
-            const defaultSidebarWidth = sidebarDefaultExpandedSize + "px";
+            const defaultSidebarWidth = `${sidebarDefaultExpandedSize}px`;
             size = appearance.expandedSidebarWidth || defaultSidebarWidth;
             appearance.preferMinimizedSidebar = false;
         } else {
-            size = sidebarMinSize + "px";
+            size = `${sidebarMinSize}px`;
             appearance.preferMinimizedSidebar = true;
         }
         Storage.set("appearance", appearance);
     }
     const root = document.documentElement;
-    if (size === sidebarMinSize + "px") {
+    if (size === `${sidebarMinSize}px`) {
         sidebar.classList.add("sidebar-minimized");
         settingsSidebar.classList.add("sidebar-minimized");
         root.style.setProperty("--sidebar-minimized-width", size);
@@ -67,11 +67,11 @@ export const Resizer = async (): Promise<void> => {
     settingsSidebar = document.querySelector<HTMLElement>(".settings-sidebar");
     appearance = (await Storage.get("appearance")) || {};
     updateSidebarParameters();
-    const defaultSidebarWidth = sidebarDefaultExpandedSize + "px";
+    const defaultSidebarWidth = `${sidebarDefaultExpandedSize}px`;
     resizeSidebar(appearance.sidebarWidth || defaultSidebarWidth);
 
     const resizeWindow = () => {
-        if (window.innerWidth < windowMinSize) resizeSidebar(sidebarMinSize + "px");
+        if (window.innerWidth < windowMinSize) resizeSidebar(`${sidebarMinSize}px`);
         else if (!appearance.preferMinimizedSidebar) {
             resizeSidebar(appearance.expandedSidebarWidth || defaultSidebarWidth);
         }
@@ -92,9 +92,9 @@ export const Resizer = async (): Promise<void> => {
         type MouseMoveEvent = MouseEvent & { target: HTMLElement };
         const { clientX: mx, clientY: my, target } = event as MouseMoveEvent;
         if (resizing) {
-            let width = mx + "px";
+            let width = `${mx}px`;
             if (mx < sidebarMinSnap) {
-                width = sidebarMinSize + "px";
+                width = `${sidebarMinSize}px`;
                 appearance.preferMinimizedSidebar = true;
             } else {
                 appearance.expandedSidebarWidth = width;
@@ -109,7 +109,7 @@ export const Resizer = async (): Promise<void> => {
                 const sidebarText = target.querySelector<HTMLElement>(".sidebar-text");
                 const { offsetTop: y, offsetHeight: h } = sidebarText;
                 const root = document.documentElement;
-                root.style.setProperty("--sidebar-text-y", my - y - h / 2 + "px");
+                root.style.setProperty("--sidebar-text-y", `${my - y - h / 2}px`);
             }
         }
         const { offsetWidth: w } = sidebar;

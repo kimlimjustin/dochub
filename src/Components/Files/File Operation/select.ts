@@ -174,7 +174,7 @@ const SelectInit = (): void => {
         selectingOrigin = new Point(e.pageX - mainBoxBounds.left, e.pageY - mainBoxBounds.top);
         if (!(e.target as HTMLElement).className.split(" ").some((c) => /file/.test(c))) {
             MAIN_BOX_EL.prepend(selectingDiv);
-            selectingDiv.style.inset = selectingOrigin.y + "px auto " + selectingOrigin.x + "px auto";
+            selectingDiv.style.inset = `${selectingOrigin.y}px auto ${selectingOrigin.x}px auto`;
             selectingDiv.style.width = selectingDiv.style.height = "auto";
         }
     });
@@ -249,8 +249,8 @@ const SelectInit = (): void => {
                 (bottom == "auto" ? " " : "px ") +
                 left +
                 (left == "auto" ? " " : "px ");
-            selectingDiv.style.height = height + "px";
-            selectingDiv.style.width = width + "px";
+            selectingDiv.style.height = `${height}px`;
+            selectingDiv.style.width = `${width}px`;
 
             const FILES = MAIN_BOX_EL.getElementsByClassName("file");
 

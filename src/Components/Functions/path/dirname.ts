@@ -24,6 +24,6 @@ const getDirname = (path: string): string => {
     if (end === -1) return hasRoot ? "/" : ".";
     if (hasRoot && end === 1) return "//";
     const result = path.slice(0, end);
-    if (!(result.endsWith("/") || result.endsWith("\\"))) return result + "/";
+    if (!(result.endsWith("/") || result.endsWith("\\"))) return `${result}/`;
 };
 export default getDirname;

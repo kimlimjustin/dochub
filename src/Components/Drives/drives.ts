@@ -37,7 +37,7 @@ const drivesToElements = async (drives: Drive[]): Promise<string> => {
                         : `<h4 class="pendrive-title">${driveName}</h4>`
                 }
                 <div class="pendrive-total-capacity"><span class="pendrive-used-capacity" style="width: ${
-                    ((drive.total_space - drive.available_space) / drive.total_space) * 100 + "%"
+                    `${((drive.total_space - drive.available_space) / drive.total_space) * 100}%`
                 }"></span></div>
                 <p>${formatBytes(drive.available_space)} ${await Translate("free of")} ${formatBytes(drive.total_space)}</p>
             </div>
@@ -83,17 +83,12 @@ const writeSidebarDriveItems = async (): Promise<void> => {
         if (platform === "win32") {
             const hasName = drive.name && /[^?]/.test(drive.name);
             driveName = hasName ? drive.name : drive.disk_type;
-            driveName += " (" + drive.mount_point.replace(/\\$/g, "") + ")";
+            driveName += ` (${drive.mount_point.replace(/\\$/g, "")})`;
         } else driveName = drive.mount_point.split("/").at(-1);
         const driveType = drive.is_removable ? "usb" : "hard-disk";
         const iconPath = await fileThumbnail(driveType, "favorites", false);
         content +=
-            `<span data-path="${encodeURI(drive.mount_point)}" data-isdir="true" class="sidebar-hover-effect sidebar-nav-item drive-item">\n` +
-            `  <div class="sidebar-icon">\n` +
-            `    <img src="${iconPath}">\n` +
-            "  </div>\n" +
-            `  <span class="sidebar-text">${driveName}</span>\n` +
-            "</span>";
+            `<span data-path="${encodeURI(drive.mount_point)}" data-isdir="true" class="sidebar-hover-effect sidebar-nav-item drive-item">\n  <div class="sidebar-icon">\n    <img src="${iconPath}">\n  </div>\n  <span class="sidebar-text">${driveName}</span>\n</span>`;
     }
     const sidebar = await Storage.get("sidebar");
     const driveList = driveElement.querySelector(".sidebar-nav-list");

@@ -66,7 +66,7 @@ const changeElementTheme = (element: HTMLElement, variable: string, key: string,
  * @returns {void}
  */
 const hoverHandler = (obj: HTMLElement, theme: string, type: ElementType) => {
-    changeElementTheme(obj, type + "Background", "background", theme);
+    changeElementTheme(obj, `${type}Background`, "background", theme);
     if (obj.getAttribute("being-listened") === "true") return;
     obj.setAttribute("being-listened", "true");
     obj.addEventListener("mousemove", (e) => {
@@ -74,7 +74,7 @@ const hoverHandler = (obj: HTMLElement, theme: string, type: ElementType) => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         if (obj.classList.contains("active")) return (obj.onmouseleave = null);
-        const color = getElementStyle("animation." + type, currentTheme);
+        const color = getElementStyle(`animation.${type}`, currentTheme);
         obj.style.background = `radial-gradient(circle at ${x}px ${y}px, ${color})`;
         obj.onmouseleave = () => (obj.style.background = obj.style.borderImage = null);
     });
@@ -125,7 +125,7 @@ const changeTheme = async (theme?: string, category?: Category): Promise<void> =
         // Generate CSS styles from user theme
         for (const key of Object.keys(IsValid(themeJSON) ? themeJSON : defaultThemeJSON[theme])) {
             const value = IsValid(themeJSON) ? themeJSON[key] : defaultThemeJSON[theme]?.[key];
-            const formalKey = key.replace(/[A-Z]/g, (m) => "-" + m.toLowerCase());
+            const formalKey = key.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`);
             const splittedKey = formalKey.split(".");
             const styleKey = splittedKey[splittedKey.length - 1];
             if (key.startsWith("hljs")) {
@@ -143,9 +143,9 @@ const changeTheme = async (theme?: string, category?: Category): Promise<void> =
                             content += `:root { ${styleKey}: ${value}; }\n`;
                             break;
                         }
-                        if (!usingClassName) content += "#" + idName;
-                        else if (className !== "") content += "." + className;
-                        else if (_category !== "root") content += "." + _category;
+                        if (!usingClassName) content += `#${idName}`;
+                        else if (className !== "") content += `.${className}`;
+                        else if (_category !== "root") content += `.${_category}`;
                         else content += ":root";
                         content += `{ ${styleKey}: ${value} }\n`;
                         break;
@@ -183,7 +183,7 @@ const getInstalledThemes = async (): Promise<CustomTheme[]> => {
         for (const { name, value } of extension.themes) {
             themes.push({
                 name,
-                identifier: identifier + "@" + identifier,
+                identifier: `${identifier}@${identifier}`,
                 author,
                 version,
                 description,

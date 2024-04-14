@@ -38,7 +38,7 @@ export const makeDirectory = async (dirPath: string): Promise<boolean> => invoke
 export const listenDirectory = (callback: (dirPath: string) => void = () => undefined) => {
     getCurrent().listen("dir_change", (e: { payload: { path: string } }) => {
         const path = e.payload.path;
-        const parent_path = path.split("/").slice(0, -1).join("/") + "/";
+        const parent_path = `${path.split("/").slice(0, -1).join("/")}/`;
         callback(parent_path);
     });
 };

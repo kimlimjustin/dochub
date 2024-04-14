@@ -34,9 +34,9 @@ function dragElement(elmnt: HTMLElement, parentElement: HTMLElement): void {
         const y = parentElement.offsetTop - parentElement.offsetHeight / 2;
         // set the element's new position:
         if (y - pos2 >= 0 && y + parentElement.offsetHeight - pos2 <= window.innerHeight)
-            parentElement.style.top = parentElement.offsetTop - pos2 + "px";
+            parentElement.style.top = `${parentElement.offsetTop - pos2}px`;
         if (x - pos1 >= 0 && x + parentElement.offsetWidth - pos1 <= window.innerWidth)
-            parentElement.style.left = parentElement.offsetLeft - pos1 + "px";
+            parentElement.style.left = `${parentElement.offsetLeft - pos1}px`;
     }
 
     function closeDragElement() {

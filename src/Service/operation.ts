@@ -54,7 +54,7 @@ class OperationAPI {
 
     async duplicate(): Promise<void> {
         this.dest =
-            this.src.split(".").length > 1 ? this.src.split(".").slice(0, -1) + " - COPY." + this.src.split(".").slice(-1) : this.src + " - COPY";
+            this.src.split(".").length > 1 ? `${this.src.split(".").slice(0, -1)} - COPY.${this.src.split(".").slice(-1)}` : `${this.src} - COPY`;
         return await this.copyFile();
     }
 }

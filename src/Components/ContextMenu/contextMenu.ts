@@ -155,8 +155,8 @@ const ContextMenu = (): void => {
             contextMenu.style.overflowY = "auto";
         }
 
-        contextMenu.style.left = coorX + "px";
-        contextMenu.style.top = coorY + "px";
+        contextMenu.style.left = `${coorX}px`;
+        contextMenu.style.top = `${coorY}px`;
         contextMenu.scrollTop = 0;
 
         document.addEventListener("click", exitContextMenu);
@@ -206,8 +206,8 @@ const ContextMenu = (): void => {
                 }px`;
                 submenuElement.style.overflowY = "auto";
             }
-            submenuElement.style.left = submenuCoorX + "px";
-            submenuElement.style.top = menuCoordinate.top + "px";
+            submenuElement.style.left = `${submenuCoorX}px`;
+            submenuElement.style.top = `${menuCoordinate.top}px`;
             submenuElement.scrollTop = 0;
         }
     });

@@ -9,7 +9,7 @@ export const dirDelimiter = "/";
  */
 export const getStandardPath = (path: string): string => {
     if (!path) return dirDelimiter;
-    if (path[path.length - 1] !== dirDelimiter) return path + "/";
+    if (path[path.length - 1] !== dirDelimiter) return `${path}/`;
     return path.replaceAll("\\", dirDelimiter);
 };
 

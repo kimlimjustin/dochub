@@ -75,8 +75,8 @@ const Hover = (): void => {
                 if (hoverPreviewElement.clientWidth > window.innerWidth) hoverPreviewElement.style.width = `${0.5 * window.innerWidth}px`;
                 if (x + 300 > document.body.offsetWidth) x -= hoverPreviewElement.offsetWidth;
                 if (y + hoverPreviewElement.clientHeight > document.body.offsetHeight) y -= hoverPreviewElement.offsetHeight;
-                hoverPreviewElement.style.top = y + "px";
-                hoverPreviewElement.style.left = x + "px";
+                hoverPreviewElement.style.top = `${y}px`;
+                hoverPreviewElement.style.left = `${x}px`;
                 hoverPreviewElement.dataset.path = target.dataset.path;
             }
         }, 500);

@@ -29,7 +29,7 @@ const About = async (): Promise<void> => {
 				<span>Version: </span><span>${version}</span
 				><span
 					data-tooltip="Copy"
-					onClick="${copyToClipboard("Version: " + version)}"
+					onClick="${copyToClipboard(`Version: ${version}`)}"
 					>&#x2398;</span
 				>
 			</li>
@@ -37,7 +37,7 @@ const About = async (): Promise<void> => {
 				<span>Tauri version: </span><span>${tauriVersion}</span
 				><span
 					data-tooltip="Copy"
-					onClick="${copyToClipboard("Tauri version: " + tauriVersion)}"
+					onClick="${copyToClipboard(`Tauri version: ${tauriVersion}`)}"
 					>&#x2398;</span
 				>
 			</li>
@@ -45,7 +45,7 @@ const About = async (): Promise<void> => {
 				<span>OS: </span><span>${platform} ${arch} ${osVersion}</span
 				><span
 					data-tooltip="Copy"
-					onClick="${copyToClipboard("OS: " + platform + " " + arch + " " + osVersion)}"
+					onClick="${copyToClipboard(`OS: ${platform} ${arch} ${osVersion}`)}"
 					>&#x2398;</span
 				>
 			</li>

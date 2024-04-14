@@ -85,11 +85,11 @@ const displayFiles = async (
         switch (layout) {
             case "m":
                 fileGrid.classList.add("medium-grid-view");
-                displayName = file.basename.length > 30 ? file.basename.substring(0, 30) + "..." : file.basename;
+                displayName = file.basename.length > 30 ? `${file.basename.substring(0, 30)}...` : file.basename;
                 break;
             case "l":
                 fileGrid.classList.add("large-grid-view");
-                displayName = file.basename.length > 40 ? file.basename.substring(0, 40) + "..." : file.basename;
+                displayName = file.basename.length > 40 ? `${file.basename.substring(0, 40)}...` : file.basename;
                 break;
             case "d":
                 fileGrid.classList.add("detail-view");
@@ -97,7 +97,7 @@ const displayFiles = async (
                 break;
             default:
                 fileGrid.classList.add("small-grid-view");
-                displayName = file.basename.length > 20 ? file.basename.substring(0, 20) + "..." : file.basename;
+                displayName = file.basename.length > 20 ? `${file.basename.substring(0, 20)}...` : file.basename;
                 break;
         }
         if (isSearch) displayName = file.file_path;

@@ -14,7 +14,7 @@ const extractExeIcon = (filePath: string): string => {
         }
         fs.mkdirSync(EXE_ICON_CACHE_DIR);
     }
-    const ICON_FILE_NAME = path.join(EXE_ICON_CACHE_DIR, basename + ".ico");
+    const ICON_FILE_NAME = path.join(EXE_ICON_CACHE_DIR, `${basename}.ico`);
 
     // Cache the icon parsed from the exe
     if (fs.existsSync(ICON_FILE_NAME)) {
