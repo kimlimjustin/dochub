@@ -5,10 +5,10 @@
  * @returns {void}
  */
 function dragElement(elmnt: HTMLElement, parentElement: HTMLElement): void {
-    let pos1 = 0,
-        pos2 = 0,
-        pos3 = 0,
-        pos4 = 0;
+    let pos1 = 0;
+    let pos2 = 0;
+    let pos3 = 0;
+    let pos4 = 0;
     elmnt.onmousedown = dragMouseDown;
 
     function dragMouseDown(e: MouseEvent) {

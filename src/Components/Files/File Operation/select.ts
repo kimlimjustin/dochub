@@ -195,12 +195,12 @@ const SelectInit = (): void => {
         const POSITION = new Point(e.pageX - mainBoxBounds.left, e.pageY - mainBoxBounds.top);
         if (isSelecting) {
             const DIRECTION = await getSelectingDivDirection(selectingOrigin, POSITION);
-            let top,
-                right,
-                bottom,
-                left,
-                height = Math.abs(selectingOrigin.y - POSITION.y),
-                width = Math.abs(selectingOrigin.x - POSITION.x);
+            let top: number;
+            let right: number;
+            let bottom: number;
+            let left: number;
+            const height = Math.abs(selectingOrigin.y - POSITION.y);
+            const width = Math.abs(selectingOrigin.x - POSITION.x);
 
             switch (DIRECTION.y) {
                 case 0:

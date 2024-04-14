@@ -35,7 +35,14 @@ const RenderProperties = (options: Record<string, unknown>) => {
 const Properties = async (filePath: string): Promise<void> => {
     const fileElement = document.querySelector<HTMLElement>(`[data-path="${encodeURI(filePath)}"]`);
 
-    let size, createdAt, modifiedAt, accessedAt, fileType, isHidden, isSystem, isReadonly;
+    let size: string;
+    let createdAt: string | undefined;
+    let modifiedAt: string | undefined;
+    let accessedAt: string | undefined;
+    let fileType: string;
+    let isHidden: boolean | undefined;
+    let isSystem: boolean | undefined;
+    let isReadonly: boolean | undefined;
 
     if (fileElement.classList.contains("file")) {
         size = fileElement.querySelector(".file-size").innerHTML;
