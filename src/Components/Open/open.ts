@@ -18,7 +18,6 @@ import Home from "../Layout/home";
 import { UpdateInfo } from "../Layout/infobar";
 import { reload } from "../Layout/windowManager";
 import PromptError from "../Prompt/error";
-import Error from "../Prompt/error";
 import { updateTheme } from "../Theme/theme";
 import displayFiles from "./displayFiles";
 import Recent from "./recent";
@@ -202,7 +201,7 @@ const OpenHandler = async (e: MouseEvent): Promise<void> => {
     const filePath = decodeURI(element.dataset.path);
 
     if ((await focusingPath()) === "xplorer://Trash" && element.dataset.isdir !== "true") {
-        Error("Error opening trashed file", "Please restore the file first in order to open it.");
+        PromptError("Error opening trashed file", "Please restore the file first in order to open it.");
     }
 
     // Open the file if it's not directory
