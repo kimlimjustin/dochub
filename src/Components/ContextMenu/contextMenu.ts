@@ -95,7 +95,7 @@ const MenuToElements = async (menu: contextMenuItem[][]): Promise<void> => {
                 }
             }
         }
-        if (index !== menu.length - 1 && section.filter((menu) => menu.visible !== false).length > 0) contextMenu.innerHTML += `<hr />`;
+        if (index !== menu.length - 1 && section.filter((menu) => menu.visible !== false).length > 0) contextMenu.innerHTML += "<hr />";
     }
     return;
 };

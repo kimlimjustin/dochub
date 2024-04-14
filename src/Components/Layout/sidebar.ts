@@ -46,9 +46,9 @@ const writeFavoriteItems = async (favorites: Favorites[]): Promise<void> => {
             `<span data-path="${favorite.path}" data-isdir="${isdir}" class="sidebar-hover-effect sidebar-nav-item favorite-item">\n` +
             `  <div class="sidebar-icon">` +
             `    <img src="${await fileThumbnail(iconPath, iconCategory, false)}" icon">\n` +
-            `  </div>\n` +
+            "  </div>\n" +
             `  <span class="sidebar-text">${await Translate(favorite.name)}</span>\n` +
-            `</span>\n`;
+            "</span>\n";
     }
     const favoriteElement = document.querySelector("#sidebar-favorites");
     const favoriteBtnText = favoriteElement.querySelector(".sidebar-text");

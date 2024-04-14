@@ -91,9 +91,9 @@ const writeSidebarDriveItems = async (): Promise<void> => {
             `<span data-path="${encodeURI(drive.mount_point)}" data-isdir="true" class="sidebar-hover-effect sidebar-nav-item drive-item">\n` +
             `  <div class="sidebar-icon">\n` +
             `    <img src="${iconPath}">\n` +
-            `  </div>\n` +
+            "  </div>\n" +
             `  <span class="sidebar-text">${driveName}</span>\n` +
-            `</span>`;
+            "</span>";
     }
     const sidebar = await Storage.get("sidebar");
     const driveList = driveElement.querySelector(".sidebar-nav-list");
