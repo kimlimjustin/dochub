@@ -56,7 +56,6 @@ const Drives = async (): Promise<string> => {
     switch (platform) {
         case "darwin":
             return ""; // Xplorer does not support drives for macOS currently
-        case "win32":
         default:
             return `<section class="home-section" id="drives">${await drivesToElements(driveInfo.DRIVES)}</section>`;
     }

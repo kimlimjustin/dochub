@@ -53,9 +53,6 @@ const displayFiles = async (
         case "T": // Filetype
             files.sort((a, b) => (a.file_type > b.file_type ? 1 : -1));
             break;
-
-        case "A": // A-Z
-        case "Z": // Z-A
         default: {
             const compator = new Intl.Collator(undefined, {
                 numeric: true,
