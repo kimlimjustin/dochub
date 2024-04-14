@@ -1,6 +1,6 @@
 import { path } from "@tauri-apps/api";
 
-import { IFavorites } from "../Typings/Store/favorites";
+import type { IFavorites } from "../Typings/Store/favorites";
 
 export const fetchFavorites = async (): Promise<IFavorites> => ({
     Documents: await path.documentDir(),

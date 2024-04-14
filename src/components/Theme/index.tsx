@@ -1,4 +1,4 @@
-import React, { useContext, PropsWithChildren, HTMLAttributes } from "react";
+import React, { useContext, type PropsWithChildren, type HTMLAttributes } from "react";
 import * as themeJson from "./theme.json";
 export const ThemeContext = React.createContext({ theme: "light" });
 

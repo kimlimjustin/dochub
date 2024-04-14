@@ -1,4 +1,4 @@
-import { ISelectionReducerState, UpdateSelectionSuccess } from "../../Typings/Store/selection";
+import type { ISelectionReducerState, UpdateSelectionSuccess } from "../../Typings/Store/selection";
 
 export const updateSelection = (updates: Partial<ISelectionReducerState>): UpdateSelectionSuccess => ({
     type: "UPDATE_SELECTION",

@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setActiveTab, updateTab } from "../../Store/ActionCreators/TabActionCreators";
-import { IAppState } from "../../Store/Reducers";
-import { IFavoritesReducerState } from "../../Typings/Store/favorites";
+import type { IAppState } from "../../Store/Reducers";
+import type { IFavoritesReducerState } from "../../Typings/Store/favorites";
 
 import XplorerLogo from "../../Icon/extension/xplorer.svg";
 import FavoriteLogo from "../../Icon/folder/sidebar-favorite.svg";

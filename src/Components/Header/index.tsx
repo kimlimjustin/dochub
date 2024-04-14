@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import SubHeader from "./SubHeader";
 import { getStandardPath } from "../../Helpers/paths";
 import { fetchFilesRequest, updateHistoryIdxRequest } from "../../Store/ActionCreators/DirectoryActionCreators";
 import { createTab, deleteTab, setActiveTab } from "../../Store/ActionCreators/TabActionCreators";
-import { IAppState } from "../../Store/Reducers";
-import { ThemedButton, ThemedDiv, ThemedSpan } from "../Theme";
 import { closeWindowRequest, maximizeWindowRequest, minimizeWindowRequest } from "../../Store/ActionCreators/WindowActionCreators";
+import type { IAppState } from "../../Store/Reducers";
+import { ThemedButton, ThemedDiv, ThemedSpan } from "../Theme";
+import SubHeader from "./SubHeader";
 let tabId = 0;
 export interface ITab {
     name: string;

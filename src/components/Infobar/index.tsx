@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { ThemedDiv, ThemedSpan } from "../Theme";
 import { useSelector } from "react-redux";
 import { IAppState } from "../../Store/Reducers";
 import formatBytes from "../Functions/filesize";

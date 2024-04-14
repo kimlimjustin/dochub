@@ -1,14 +1,14 @@
-import { invoke } from '@tauri-apps/api';
-import FileMetaData from '../Typings/fileMetaData';
+import { invoke } from "@tauri-apps/api";
+import type FileMetaData from "../Typings/fileMetaData";
 
 interface TrashData {
-	files: FileMetaData[];
+    files: FileMetaData[];
 }
 
 interface ReturnInformation {
-	status: boolean;
-	message: string;
-	request_confirmation: boolean;
+    status: boolean;
+    message: string;
+    request_confirmation: boolean;
 }
 /**
  * Get list of files in trash
@@ -16,9 +16,9 @@ interface ReturnInformation {
  * @returns {Promise<TrashData>}
  */
 const getTrashedFiles = (): Promise<TrashData> => {
-	return new Promise((resolve) => {
-		invoke('get_trashed_items').then((result) => resolve(result as TrashData));
-	});
+    return new Promise((resolve) => {
+        invoke("get_trashed_items").then((result) => resolve(result as TrashData));
+    });
 };
 
 /**
@@ -27,9 +27,9 @@ const getTrashedFiles = (): Promise<TrashData> => {
  * @returns {Promise<void>}
  */
 const DeleteFiles = (paths: string[]): Promise<void> => {
-	return new Promise((resolve) => {
-		invoke('delete_file', { paths }).then(() => resolve());
-	});
+    return new Promise((resolve) => {
+        invoke("delete_file", { paths }).then(() => resolve());
+    });
 };
 
 /**
@@ -39,9 +39,9 @@ const DeleteFiles = (paths: string[]): Promise<void> => {
  * @returns {Promise<ReturnInformation>} - Promise that resolves when files are restored
  */
 const RestoreFiles = async (paths: string[], force = false): Promise<ReturnInformation> => {
-	return new Promise((resolve) => {
-		invoke('restore_files', { paths, force }).then((result) => resolve(result as ReturnInformation));
-	});
+    return new Promise((resolve) => {
+        invoke("restore_files", { paths, force }).then((result) => resolve(result as ReturnInformation));
+    });
 };
 
 /**
@@ -50,9 +50,9 @@ const RestoreFiles = async (paths: string[], force = false): Promise<ReturnInfor
  * @returns {Promise<void>}
  */
 const PurgeFiles = (paths: string[]): Promise<void> => {
-	return new Promise((resolve) => {
-		invoke('purge_trashes', { paths }).then(() => resolve());
-	});
+    return new Promise((resolve) => {
+        invoke("purge_trashes", { paths }).then(() => resolve());
+    });
 };
 
 /**
@@ -62,7 +62,10 @@ const PurgeFiles = (paths: string[]): Promise<void> => {
  * @returns {Promise<void>}
  */
 const RestoreFile = async (original_parent: string, basename: string): Promise<void> => {
-	return await invoke('restore_trash', { originalParent: original_parent, basename });
+    return await invoke("restore_trash", {
+        originalParent: original_parent,
+        basename,
+    });
 };
 
 export { getTrashedFiles, DeleteFiles, RestoreFiles, PurgeFiles, RestoreFile };

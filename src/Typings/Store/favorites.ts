@@ -1,4 +1,4 @@
-import { AppActionBase } from "./actions";
+import type { AppActionBase } from "./actions";
 
 // * Allows for iteration over objects of type IFavorites, IFavoritesReducerState
 interface IFavoritesBase {

@@ -1,10 +1,10 @@
 import { invoke } from "@tauri-apps/api/core";
-import { UnlistenFn } from "@tauri-apps/api/event";
+import type { UnlistenFn } from "@tauri-apps/api/event";
 import { getCurrent } from "@tauri-apps/api/window";
 
-import FileMetaData from "../Typings/fileMetaData";
-import { IDirectoryMeta } from "../Typings/Store/directory";
 import { fetchFilesRequest } from "../Store/ActionCreators/DirectoryActionCreators";
+import type { IDirectoryMeta } from "../Typings/Store/directory";
+import type FileMetaData from "../Typings/fileMetaData";
 
 /**
  * Get files inside a directory

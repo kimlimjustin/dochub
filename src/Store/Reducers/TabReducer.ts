@@ -1,7 +1,7 @@
 import omit from "lodash.omit";
 
-import { ITab, ITabReducerState } from "../../Typings/Store/tab";
-import { Actions } from "../../Typings/Store/store";
+import type { Actions } from "../../Typings/Store/store";
+import type { ITab, ITabReducerState } from "../../Typings/Store/tab";
 
 const defaultTab: ITab = {
     name: "Default Tab",

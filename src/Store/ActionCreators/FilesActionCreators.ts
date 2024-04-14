@@ -1,4 +1,4 @@
-import FileMetaData from "../../Typings/fileMetaData";
+import type FileMetaData from "../../Typings/fileMetaData";
 
 import {
     FileTrashMeta,

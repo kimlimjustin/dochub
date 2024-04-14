@@ -1,27 +1,27 @@
+import type { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { all, call, takeLatest } from "redux-saga/effects";
-import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 
 import {
     changeWindowTitleFailure,
     changeWindowTitleSuccess,
+    closeWindowFailure,
+    closeWindowSuccess,
     createNewWindowFailure,
     createNewWindowSuccess,
     listenWindowCloseFailure,
     listenWindowCloseSuccess,
+    maximizeWindowFailure,
+    maximizeWindowSuccess,
+    minimizeWindowFailure,
+    minimizeWindowSuccess,
     setDecorationsFailure,
     setDecorationsSuccess,
-    maximizeWindowSuccess,
-    maximizeWindowFailure,
-    minimizeWindowSuccess,
-    minimizeWindowFailure,
-    closeWindowSuccess,
-    closeWindowFailure,
 } from "../ActionCreators/WindowActionCreators";
 
-import { ChangeWindowTitleRequest, CreateNewWindowRequest, SetDecorationsRequest } from "../../Typings/Store/window";
+import type { ChangeWindowTitleRequest, CreateNewWindowRequest, SetDecorationsRequest } from "../../Typings/Store/window";
 
-import { selectStatus, typedPut as put } from "./helpers";
 import * as WindowService from "../../Services/WindowService";
+import { typedPut as put, selectStatus } from "./helpers";
 
 function* listenWindowCloseWorker(/* action: ListenWindowCloseRequest */) {
     try {

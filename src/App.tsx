@@ -6,16 +6,16 @@ import SettingsView from "./Components/SettingsView";
 
 import ContextMenu from "./Components/ContextMenu";
 import Header from "./Components/Header";
+import Infobar from "./Components/Infobar";
 import LoadingBar from "./Components/LoadingBar";
+import OperationBar from "./Components/OperationBar";
 import Properties from "./Components/Properties";
 import Sidebar from "./Components/Sidebar";
-import Infobar from "./Components/Infobar";
-import OperationBar from "./Components/OperationBar";
 
-import { setActiveTab } from "./Store/ActionCreators/TabActionCreators";
-import { IAppState } from "./Store/Reducers";
-import "./Public/style.scss";
 import { ThemedDiv } from "./Components/Theme";
+import "./Public/style.scss";
+import { setActiveTab } from "./Store/ActionCreators/TabActionCreators";
+import type { IAppState } from "./Store/Reducers";
 
 const App = () => {
     const dispatch = useDispatch();

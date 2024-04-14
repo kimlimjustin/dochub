@@ -4,13 +4,13 @@
  * @returns {boolean} if element in viewport
  */
 const isElementInViewport = (el: HTMLElement): boolean => {
-	const rect = el.getBoundingClientRect();
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-	);
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 };
 
 /**
@@ -19,7 +19,7 @@ const isElementInViewport = (el: HTMLElement): boolean => {
  * @returns {void}
  */
 const ensureElementInViewPort = (element: HTMLElement): void => {
-	if (!isElementInViewport(element)) element.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    if (!isElementInViewport(element)) element.scrollIntoView({ block: "center", behavior: "smooth" });
 };
 
 export { ensureElementInViewPort };

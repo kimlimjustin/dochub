@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
 import { createLogger } from "redux-logger";
+import createSagaMiddleware from "redux-saga";
 
-import rootSaga from "./Sagas";
 import rootReducer, { IAppState } from "./Reducers";
+import rootSaga from "./Sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 const loggerMiddleware = createLogger();

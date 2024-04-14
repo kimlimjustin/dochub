@@ -1,5 +1,5 @@
-import Storage from "../../Service/storage";
 import LocalesAPI from "../../Service/locales";
+import Storage from "../../Service/storage";
 
 let localesInformation: LocalesAPI;
 
@@ -14,19 +14,15 @@ const Translate = async (source: string): Promise<string> => {
         localesInformation = new LocalesAPI();
         await localesInformation.build();
     }
-    const lang =
-        (await Storage.get("preference"))?.language ?? navigator.language;
+    const lang = (await Storage.get("preference"))?.language ?? navigator.language;
     for (const locale of Object.values(localesInformation.AVAILABLE_LOCALES)) {
         // Check if the inputed lang available
         if (locale === lang) {
             if (localesInformation.LOCALES[locale]) {
                 // Replace all text
-                Object.keys(localesInformation.LOCALES[locale]).forEach(
-                    (key) => {
-                        if (source === key)
-                            source = localesInformation.LOCALES[locale][key];
-                    }
-                );
+                Object.keys(localesInformation.LOCALES[locale]).forEach((key) => {
+                    if (source === key) source = localesInformation.LOCALES[locale][key];
+                });
             }
             // Return translated text
             return source;

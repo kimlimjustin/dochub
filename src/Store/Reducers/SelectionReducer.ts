@@ -1,5 +1,5 @@
-import { Actions } from "../../Typings/Store/store";
-import { ISelectionReducerState } from "../../Typings/Store/selection";
+import type { ISelectionReducerState } from "../../Typings/Store/selection";
+import type { Actions } from "../../Typings/Store/store";
 
 const initialState: ISelectionReducerState = {
     selected: [],

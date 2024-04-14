@@ -9,6 +9,8 @@ import {
     createFileSuccess,
     cutFileFailure,
     cutFileSuccess,
+    deleteFilesFailure,
+    deleteFilesSuccess,
     extractIconFailure,
     extractIconSuccess,
     fetchFilePropertiesFailure,
@@ -19,6 +21,8 @@ import {
     isDirectorySuccess,
     openFileFailure,
     openFileSuccess,
+    purgeFilesFailure,
+    purgeFilesSuccess,
     readAssetFailure,
     readAssetSuccess,
     readFileFailure,
@@ -29,44 +33,40 @@ import {
     removeFileSuccess,
     renameFileFailure,
     renameFileSuccess,
-    revealFileFailure,
-    revealFileSuccess,
-    deleteFilesFailure,
-    deleteFilesSuccess,
     restoreFileFailure,
     restoreFileSuccess,
     restoreFilesFailure,
     restoreFilesSuccess,
-    purgeFilesFailure,
-    purgeFilesSuccess,
+    revealFileFailure,
+    revealFileSuccess,
 } from "../ActionCreators/FilesActionCreators";
 
-import {
-    TrashData,
-    FileTrashMeta,
+import type {
     CalculateFileSizeRequest,
     CopyFileRequest,
     CreateFileRequest,
     CutFileRequest,
+    DeleteFilesRequest,
     ExtractIconRequest,
     FetchFilePropertiesRequest,
+    FileTrashMeta,
     IsDirectoryRequest,
     OpenFileRequest,
+    PurgeFilesRequest,
     ReadAssetRequest,
     ReadFileRequest,
     ReadJsonFileRequest,
     RemoveFileRequest,
     RenameFileRequest,
-    RevealFileRequest,
-    DeleteFilesRequest,
     RestoreFileRequest,
     RestoreFilesRequest,
-    PurgeFilesRequest,
+    RevealFileRequest,
+    TrashData,
 } from "../../Typings/Store/files";
 
-import { selectStatus, typedPut as put } from "./helpers";
 import * as FilesService from "../../Services/FilesService";
-import FileMetaData from "../../Typings/fileMetaData";
+import type FileMetaData from "../../Typings/fileMetaData";
+import { typedPut as put, selectStatus } from "./helpers";
 
 function* readFileWorker(action: ReadFileRequest) {
     try {

@@ -1,25 +1,25 @@
 import { combineReducers } from "redux";
 import { Actions } from "../../Typings/Store/store";
 
-import { IAppReducerState } from "../../Typings/Store/app";
-import { IClipboardReducerState } from "../../Typings/Store/clipboard";
-import { ICliReducerState } from "../../Typings/Store/cli";
-import { IConfigReducerState } from "../../Typings/Store/config";
-import { IDirectoryReducerState } from "../../Typings/Store/directory";
-import { IDriveReducerState } from "../../Typings/Store/drive";
-import { IFavoritesReducerState } from "../../Typings/Store/favorites";
-import { IFilesReducerState } from "../../Typings/Store/files";
-import { ILocalesReducerState } from "../../Typings/Store/locales";
-import { IPlatformReducerState } from "../../Typings/Store/platform";
-import { IRequestReducerState } from "../../Typings/Store/request";
-import { IStorageReducerState } from "../../Typings/Store/storage";
-import { ITabReducerState } from "../../Typings/Store/tab";
-import { IWindowReducerState } from "../../Typings/Store/window";
-import { ISelectionReducerState } from "../../Typings/Store/selection";
+import type { IAppReducerState } from "../../Typings/Store/app";
+import type { ICliReducerState } from "../../Typings/Store/cli";
+import type { IClipboardReducerState } from "../../Typings/Store/clipboard";
+import type { IConfigReducerState } from "../../Typings/Store/config";
+import type { IDirectoryReducerState } from "../../Typings/Store/directory";
+import type { IDriveReducerState } from "../../Typings/Store/drive";
+import type { IFavoritesReducerState } from "../../Typings/Store/favorites";
+import type { IFilesReducerState } from "../../Typings/Store/files";
+import type { ILocalesReducerState } from "../../Typings/Store/locales";
+import type { IPlatformReducerState } from "../../Typings/Store/platform";
+import type { IRequestReducerState } from "../../Typings/Store/request";
+import type { ISelectionReducerState } from "../../Typings/Store/selection";
+import type { IStorageReducerState } from "../../Typings/Store/storage";
+import type { ITabReducerState } from "../../Typings/Store/tab";
+import type { IWindowReducerState } from "../../Typings/Store/window";
 
 import AppReducer from "./AppReducer";
-import ClipboardReducer from "./ClipboardReducer";
 import CliReducer from "./CliReducer";
+import ClipboardReducer from "./ClipboardReducer";
 import ConfigReducer from "./ConfigReducer";
 import DirectoryReducer from "./DirectoryReducer";
 import DriveReducer from "./DriveReducer";
@@ -28,10 +28,10 @@ import FilesReducer from "./FilesReducer";
 import LocalesReducer from "./LocalesReducer";
 import PlatformReducer from "./PlatformReducer";
 import RequestReducer from "./RequestReducer";
+import SelectionReducer from "./SelectionReducer";
 import StorageReducer from "./StorageReducer";
 import TabReducer from "./TabReducer";
 import WindowReducer from "./WindowReducer";
-import SelectionReducer from "./SelectionReducer";
 
 export interface IAppState {
     app: IAppReducerState;

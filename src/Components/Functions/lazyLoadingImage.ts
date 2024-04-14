@@ -1,4 +1,4 @@
-import FileAPI from '../../Service/files';
+import FileAPI from "../../Service/files";
 
 const FETCHED_ICONS: string[] = []; // Array of fetch icons
 
@@ -8,14 +8,14 @@ const FETCHED_ICONS: string[] = []; // Array of fetch icons
  * @returns {boolean} if element in viewport
  */
 const isOnImageViewport = (el: HTMLElement): boolean => {
-	const rect = el.getBoundingClientRect();
-	const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom - windowHeight <= windowHeight &&
-		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-	);
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom - windowHeight <= windowHeight &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 };
 
 /**
@@ -23,18 +23,18 @@ const isOnImageViewport = (el: HTMLElement): boolean => {
  * @returns {void}
  */
 export const LOAD_IMAGE = (): void => {
-	const images = document.querySelectorAll('img[data-src]');
-	images.forEach((image: HTMLImageElement) => {
-		if (isOnImageViewport(image)) {
-			if (image.dataset.isImg === 'true') {
-				image.src = new FileAPI(image.dataset.src).readAsset();
-			} else {
-				image.src = require(`../../Icon/${image.dataset.src}`);
-			}
-			if (FETCHED_ICONS.indexOf(image.dataset.src) === -1) FETCHED_ICONS.push(image.dataset.src);
-			image.removeAttribute('data-src');
-		}
-	});
+    const images = document.querySelectorAll("img[data-src]");
+    images.forEach((image: HTMLImageElement) => {
+        if (isOnImageViewport(image)) {
+            if (image.dataset.isImg === "true") {
+                image.src = new FileAPI(image.dataset.src).readAsset();
+            } else {
+                image.src = require(`../../Icon/${image.dataset.src}`);
+            }
+            if (FETCHED_ICONS.indexOf(image.dataset.src) === -1) FETCHED_ICONS.push(image.dataset.src);
+            image.removeAttribute("data-src");
+        }
+    });
 };
 
 /**
@@ -42,21 +42,21 @@ export const LOAD_IMAGE = (): void => {
  * @returns {void}
  */
 const LAZY_LOAD_INIT = (): void => {
-	// Only show image when its visible in viewport to reduce latency
-	document.querySelector('.main-box').addEventListener('scroll', () => {
-		const images = document.querySelectorAll('img[data-src]');
-		images.forEach((image: HTMLImageElement) => {
-			if (isOnImageViewport(image)) {
-				if (image.dataset.isImg === 'true') {
-					image.src = new FileAPI(image.dataset.src).readAsset();
-				} else {
-					image.src = require(`../../Icon/${image.dataset.src}`);
-				}
-				if (FETCHED_ICONS.indexOf(image.dataset.src) === -1) FETCHED_ICONS.push(image.dataset.src);
-				image.removeAttribute('data-src');
-			}
-		});
-	});
+    // Only show image when its visible in viewport to reduce latency
+    document.querySelector(".main-box").addEventListener("scroll", () => {
+        const images = document.querySelectorAll("img[data-src]");
+        images.forEach((image: HTMLImageElement) => {
+            if (isOnImageViewport(image)) {
+                if (image.dataset.isImg === "true") {
+                    image.src = new FileAPI(image.dataset.src).readAsset();
+                } else {
+                    image.src = require(`../../Icon/${image.dataset.src}`);
+                }
+                if (FETCHED_ICONS.indexOf(image.dataset.src) === -1) FETCHED_ICONS.push(image.dataset.src);
+                image.removeAttribute("data-src");
+            }
+        });
+    });
 };
 
 export default LAZY_LOAD_INIT;

@@ -1,4 +1,4 @@
-import { AppActionBase } from "./actions";
+import type { AppActionBase } from "./actions";
 
 export type AppTheme = "Light" | "Dark";
 
