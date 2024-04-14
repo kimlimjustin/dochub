@@ -74,7 +74,7 @@ const Shortcut = (): void => {
                     .querySelector("#file-filename")
                     ?.textContent.toLowerCase()
                     .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/gu, "")
+                    .replace(/\p{Diacritic}/gu, "")
                     .startsWith(searchingFileName);
             };
 
@@ -295,7 +295,7 @@ const Shortcut = (): void => {
                         .querySelector("#file-filename")
                         .innerHTML.toLowerCase()
                         .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, "")
+                        .replace(/\p{Diacritic}/g, "")
                         .startsWith(searchingFileName);
                 });
                 for (let i = 0; i < _files.length; i++) {
@@ -313,11 +313,11 @@ const Shortcut = (): void => {
                 unselectAllSelected();
                 for (const _file of _files) {
                     const _fileName = _file.querySelector("#file-filename").innerHTML.toLowerCase();
-                    console.log(_fileName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+                    console.log(_fileName.normalize("NFD").replace(/\p{Diacritic}/g, ""));
                     if (
                         _fileName
                             .normalize("NFD")
-                            .replace(/[\u0300-\u036f]/g, "")
+                            .replace(/\p{Diacritic}/g, "")
                             .startsWith(searchingFileName)
                     ) {
                         Select(_file as HTMLElement, false, false);
