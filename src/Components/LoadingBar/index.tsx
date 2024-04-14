@@ -6,7 +6,7 @@ export interface ILoadingBarProps {
 
 const LoadingBar = ({ isLoading }: ILoadingBarProps) => (
     <div className="loading-bar" data-loading={isLoading}>
-        <span className="loader"></span>
+        <span className="loader" />
     </div>
 );
 

@@ -7,9 +7,9 @@ const SettingsView = () => (
                 <span className="exit-setting-icon">←</span>
                 <span className="settings-sidebar-heading">Settings</span>
             </div>
-            <div className="settings-sidebar-items"></div>
+            <div className="settings-sidebar-items" />
         </div>
-        <div className="settings-main"></div>
+        <div className="settings-main" />
     </div>
 );
 

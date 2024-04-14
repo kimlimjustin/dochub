@@ -48,7 +48,7 @@ const Sidebar = () => {
                                     onClick={() => navigateToPath(path)}
                                     key={path + name}
                                 >
-                                    <div className="sidebar-icon"></div>
+                                    <div className="sidebar-icon" />
                                     <ThemedSpan componentName="sidebarText" className="sidebar-text">
                                         {name}
                                     </ThemedSpan>
@@ -70,7 +70,7 @@ const Sidebar = () => {
                                 onClick={() => navigateToPath(mount_point.replace(/\\/g, "/"))}
                                 key={mount_point + name}
                             >
-                                <div className="sidebar-icon"></div>
+                                <div className="sidebar-icon" />
                                 <ThemedSpan componentName="sidebarText" className="sidebar-text">
                                     {name}
                                 </ThemedSpan>

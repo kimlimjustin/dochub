@@ -2,8 +2,8 @@ import React from "react";
 
 const ContextMenu = () => (
     <>
-        <div className="contextmenu"></div>
-        <div id="contextmenu-submenus"></div>
+        <div className="contextmenu" />
+        <div id="contextmenu-submenus" />
     </>
 );
 

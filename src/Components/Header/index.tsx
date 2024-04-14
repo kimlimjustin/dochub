@@ -72,19 +72,19 @@ const Header = () => {
                         id="minimize"
                         title="Minimize"
                         onClick={() => dispatch(minimizeWindowRequest())}
-                    ></ThemedSpan>
+                    />
                     <ThemedSpan
                         componentName="windowManagerMaximizeButton"
                         id="maximize"
                         title="Maximize"
                         onClick={() => dispatch(maximizeWindowRequest())}
-                    ></ThemedSpan>
+                    />
                     <ThemedSpan
                         componentName="windowManagerExitButton"
                         id="exit"
                         title="Exit (Ctrl + w)"
                         onClick={() => dispatch(closeWindowRequest())}
-                    ></ThemedSpan>
+                    />
                 </ThemedDiv>
             </ThemedDiv>
 

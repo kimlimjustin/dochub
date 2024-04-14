@@ -6,7 +6,7 @@ const Properties = () => (
             <span className="properties-heading-title"> Properties </span>
             <span className="properties-heading-exit">&times;</span>
         </div>
-        <div className="properties-body"></div>
+        <div className="properties-body" />
     </div>
 );
 

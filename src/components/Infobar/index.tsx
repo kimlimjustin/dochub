@@ -28,7 +28,7 @@ const Infobar = () => {
                 ) : null}
             </ThemedDiv>
             <ThemedDiv componentName="infobarRight" className="infobar-right">
-                <ThemedSpan componentName="infobarItem" className="infobar-item"></ThemedSpan>
+                <ThemedSpan componentName="infobarItem" className="infobar-item" />
             </ThemedDiv>
         </ThemedDiv>
     );
