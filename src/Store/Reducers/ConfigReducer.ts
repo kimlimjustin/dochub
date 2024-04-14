@@ -1,5 +1,5 @@
-import { Actions } from "../../Typings/Store/store";
-import { IConfigReducerState } from "../../Typings/Store/config";
+import type { IConfigReducerState } from "../../Typings/Store/config";
+import type { Actions } from "../../Typings/Store/store";
 
 const initialState: IConfigReducerState = {
     opacity: 0.5,

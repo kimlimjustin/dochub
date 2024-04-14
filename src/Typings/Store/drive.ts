@@ -1,4 +1,4 @@
-import { AppActionBase } from "./actions";
+import type { AppActionBase } from "./actions";
 
 export interface IDrive {
     name: string;

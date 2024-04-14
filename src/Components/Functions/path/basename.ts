@@ -4,8 +4,8 @@
  * @returns {string}
  */
 const basename = (path: string): string =>
-	path
-		.replace(/(\\|\/)$/g, '')
-		.split(/[\\/]/)
-		.pop();
+    path
+        .replace(/(\\|\/)$/g, "")
+        .split(/[\\/]/)
+        .pop();
 export default basename;

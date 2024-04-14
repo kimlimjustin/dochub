@@ -1,14 +1,11 @@
-import React, { MouseEvent } from "react";
+import React, { type MouseEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import GridFile from "./GridFile";
 import DetailFile from "./DetailFile";
+import GridFile from "./GridFile";
 
 import { getStandardPath } from "../../Helpers/paths";
-import { openFileRequest, openFilePreview } from "../../Store/ActionCreators/FilesActionCreators";
-import { setActiveTab, updateTab } from "../../Store/ActionCreators/TabActionCreators";
-import { IAppState } from "../../Store/Reducers";
-import FileMetaData from "../../Typings/fileMetaData";
+import { openFilePreview, openFileRequest } from "../../Store/ActionCreators/FilesActionCreators";
 import { updateSelection } from "../../Store/ActionCreators/SelectionActionCreators";
 import { sortFiles } from "../MainView";
 
@@ -60,7 +57,13 @@ export const File = ({ mode, metadata }: IFileProps): JSX.Element => {
                 name: filePath.split("\\").pop() || "",
             }),
         );
-        dispatch(setActiveTab({ name: filePath.split("\\").pop() || "", path: getStandardPath(filePath), id: activeTab.id }));
+        dispatch(
+            setActiveTab({
+                name: filePath.split("\\").pop() || "",
+                path: getStandardPath(filePath),
+                id: activeTab.id,
+            }),
+        );
     };
 
     switch (mode) {

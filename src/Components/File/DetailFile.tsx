@@ -1,8 +1,8 @@
-import React, { MouseEvent } from "react";
-import FileMetaData from "../../Typings/fileMetaData";
-import { ThemedButton, ThemedSpan } from "../Theme";
+import React, { type MouseEvent } from "react";
 import { useSelector } from "react-redux";
-import { IAppState } from "../../Store/Reducers";
+import type { IAppState } from "../../Store/Reducers";
+import type FileMetaData from "../../Typings/fileMetaData";
+import { ThemedButton, ThemedSpan } from "../Theme";
 export interface IDetailFileProps {
     metadata: FileMetaData;
     handleFileRightClick: (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, path: string) => void;

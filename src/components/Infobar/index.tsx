@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { ThemedDiv, ThemedSpan } from "../Theme";
 import { useSelector } from "react-redux";
-import { IAppState } from "../../Store/Reducers";
+import type { IAppState } from "../../Store/Reducers";
 import formatBytes from "../Functions/filesize";
 
 const Infobar = () => {
@@ -29,7 +28,7 @@ const Infobar = () => {
                 ) : null}
             </ThemedDiv>
             <ThemedDiv componentName="infobarRight" className="infobar-right">
-                <ThemedSpan componentName="infobarItem" className="infobar-item"></ThemedSpan>
+                <ThemedSpan componentName="infobarItem" className="infobar-item" />
             </ThemedDiv>
         </ThemedDiv>
     );

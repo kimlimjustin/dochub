@@ -1,5 +1,5 @@
-import { IFavoritesReducerState } from "../../Typings/Store/favorites";
-import { Actions } from "../../Typings/Store/store";
+import type { IFavoritesReducerState } from "../../Typings/Store/favorites";
+import type { Actions } from "../../Typings/Store/store";
 
 const initialState: IFavoritesReducerState = {
     Documents: null,
@@ -11,10 +11,7 @@ const initialState: IFavoritesReducerState = {
     Home: null,
 };
 
-const reducer = (
-    state = initialState,
-    action: Actions
-): IFavoritesReducerState => {
+const reducer = (state = initialState, action: Actions): IFavoritesReducerState => {
     if (action.status !== "SUCCESS") return state;
 
     switch (action.type) {

@@ -1,9 +1,9 @@
-import { ActionStatus } from "./actions";
+import type { ActionStatus } from "./actions";
 
 export interface IRequest {
     status: ActionStatus;
-    requestTime: String;
-    completedTime: String;
+    requestTime: string;
+    completedTime: string;
     // attempts: number // Currently unimplemented, for future use
 }
 

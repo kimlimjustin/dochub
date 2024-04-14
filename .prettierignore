@@ -1,6 +1,0 @@
-build
-dist
-out
-node_modules
-*.min.
-packages/**/*.ejs

@@ -1,10 +1,10 @@
 import { invoke } from "@tauri-apps/api/core";
-import { UnlistenFn } from "@tauri-apps/api/event";
+import type { UnlistenFn } from "@tauri-apps/api/event";
 import { getCurrent } from "@tauri-apps/api/window";
 
-import FileMetaData from "../Typings/fileMetaData";
-import { IDirectoryMeta } from "../Typings/Store/directory";
 import { fetchFilesRequest } from "../Store/ActionCreators/DirectoryActionCreators";
+import type { IDirectoryMeta } from "../Typings/Store/directory";
+import type FileMetaData from "../Typings/fileMetaData";
 
 /**
  * Get files inside a directory
@@ -38,7 +38,7 @@ export const makeDirectory = async (dirPath: string): Promise<boolean> => invoke
 export const listenDirectory = (callback: (dirPath: string) => void = () => undefined) => {
     getCurrent().listen("dir_change", (e: { payload: { path: string } }) => {
         const path = e.payload.path;
-        const parent_path = path.split("/").slice(0, -1).join("/") + "/";
+        const parent_path = `${path.split("/").slice(0, -1).join("/")}/`;
         callback(parent_path);
     });
 };

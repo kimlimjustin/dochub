@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import File from "../File";
 import Preview from "../Preview";
 
-import { IAppState } from "../../Store/Reducers";
-import { IFile } from "../../Typings/Store/files";
+import type { IAppState } from "../../Store/Reducers";
+import type { IFile } from "../../Typings/Store/files";
 import { ThemedDiv } from "../Theme";
 
 export interface IMainViewProps {

@@ -1,5 +1,5 @@
-import React, { MouseEvent } from "react";
-import FileMetaData from "../../Typings/fileMetaData";
+import React, { type MouseEvent } from "react";
+import type FileMetaData from "../../Typings/fileMetaData";
 import { ThemedButton } from "../Theme";
 
 export interface IGridFileProps {

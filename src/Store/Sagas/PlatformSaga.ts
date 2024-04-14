@@ -1,10 +1,10 @@
 import { all, call, takeLatest } from "redux-saga/effects";
 
-import { getOSFailure, getOSSuccess } from "../ActionCreators/PlatformActionCreators";
 import {} from "../../Typings/Store/platform";
+import { getOSFailure, getOSSuccess } from "../ActionCreators/PlatformActionCreators";
 
-import { selectStatus, typedPut as put } from "./helpers";
 import * as PlatformService from "../../Services/PlatformService";
+import { typedPut as put, selectStatus } from "./helpers";
 
 function* getOSWorker() {
     try {

@@ -1,4 +1,4 @@
-import { UnlistenFn } from "@tauri-apps/api/event";
+import type { UnlistenFn } from "@tauri-apps/api/event";
 import { getCurrent } from "@tauri-apps/api/window";
 import { all, call, takeLatest } from "redux-saga/effects";
 
@@ -6,8 +6,10 @@ import {
     cancelDirectorySearchFailure,
     cancelDirectorySearchRequest,
     cancelDirectorySearchSuccess,
+    directorySearchFailure,
     directorySearchPartialResultFailure,
     directorySearchPartialResultSuccess,
+    directorySearchSuccess,
     fetchDirectorySizeFailure,
     fetchDirectorySizeSuccess,
     fetchFileExistsFailure,
@@ -16,26 +18,24 @@ import {
     fetchFilesSuccess,
     fetchIsDirectoryFailure,
     fetchIsDirectorySuccess,
-    directorySearchFailure,
-    directorySearchSuccess,
     listenDirectoryFailure,
     listenDirectorySuccess,
     makeDirectoryFailure,
     makeDirectorySuccess,
+    pushHistory,
     unlistenDirectoryFailure,
     unlistenDirectorySuccess,
-    pushHistory,
     updateHistoryIdxFailure,
     updateHistoryIdxSuccess,
 } from "../ActionCreators/DirectoryActionCreators";
 
-import {
-    IDirectoryMeta,
+import type {
     CancelDirectorySearchRequest,
     FetchDirectorySizeRequest,
     FetchFileExistsRequest,
     FetchFilesRequest,
     FetchIsDirectoryRequest,
+    IDirectoryMeta,
     InitDirectorySearchRequest,
     ListenDirectoryRequest,
     MakeDirectoryRequest,
@@ -43,11 +43,11 @@ import {
     UpdateHistoryIdxRequest,
 } from "../../Typings/Store/directory";
 
-import { selectStatus, typedPut as put, typedSelect as select } from "./helpers";
-import { setActiveTab } from "../ActionCreators/TabActionCreators";
 import * as DirectoryService from "../../Services/DirectoryService";
-import FileMetaData from "../../Typings/fileMetaData";
-import { ITab } from "../../Typings/Store/tab";
+import type { ITab } from "../../Typings/Store/tab";
+import type FileMetaData from "../../Typings/fileMetaData";
+import { setActiveTab } from "../ActionCreators/TabActionCreators";
+import { typedPut as put, typedSelect as select, selectStatus } from "./helpers";
 
 function* fetchFilesWorker(action: FetchFilesRequest) {
     try {

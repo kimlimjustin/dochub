@@ -1,6 +1,6 @@
-import { UnlistenFn } from "@tauri-apps/api/event";
-import FileMetaData from "../fileMetaData";
-import { AppActionBase } from "./actions";
+import type { UnlistenFn } from "@tauri-apps/api/event";
+import type FileMetaData from "../fileMetaData";
+import type { AppActionBase } from "./actions";
 
 export interface IDirectoryMeta {
     files: FileMetaData[];
@@ -39,9 +39,17 @@ export const PUSH_HISTORY = "PUSH_HISTORY"; // * Internal
 export const POP_HISTORY = "POP_HISTORY"; // * Internal
 export const UPDATE_HISTORY_IDX = "UPDATE_HISTORY_IDX";
 
-export type FetchFilesRequest = AppActionBase<typeof FETCH_FILES, "REQUEST"> & { dirName: string; pushToHistory?: boolean };
-export type FetchFilesSuccess = AppActionBase<typeof FETCH_FILES, "SUCCESS"> & { dirName: string; meta: IDirectoryMeta };
-export type FetchFilesFailure = AppActionBase<typeof FETCH_FILES, "FAILURE"> & { message: string };
+export type FetchFilesRequest = AppActionBase<typeof FETCH_FILES, "REQUEST"> & {
+    dirName: string;
+    pushToHistory?: boolean;
+};
+export type FetchFilesSuccess = AppActionBase<typeof FETCH_FILES, "SUCCESS"> & {
+    dirName: string;
+    meta: IDirectoryMeta;
+};
+export type FetchFilesFailure = AppActionBase<typeof FETCH_FILES, "FAILURE"> & {
+    message: string;
+};
 
 export type FetchIsDirectoryRequest = AppActionBase<typeof FETCH_IS_DIR, "REQUEST"> & { path: string };
 export type FetchIsDirectorySuccess = AppActionBase<typeof FETCH_IS_DIR, "SUCCESS"> & { isDir: boolean };
@@ -83,7 +91,9 @@ export type CancelDirectorySearchSuccess = AppActionBase<typeof CANCEL_DIRECTORY
 export type CancelDirectorySearchFailure = AppActionBase<typeof CANCEL_DIRECTORY_SEARCH, "FAILURE"> & { message: string };
 
 export type PushHistorySuccess = AppActionBase<typeof PUSH_HISTORY, "SUCCESS"> & { path: string };
-export type PopHistorySuccess = AppActionBase<typeof POP_HISTORY, "SUCCESS"> & { number: number };
+export type PopHistorySuccess = AppActionBase<typeof POP_HISTORY, "SUCCESS"> & {
+    number: number;
+};
 
 export type UpdateHistoryIdxRequest = AppActionBase<typeof UPDATE_HISTORY_IDX, "REQUEST"> & { idx: number };
 export type UpdateHistoryIdxSuccess = AppActionBase<typeof UPDATE_HISTORY_IDX, "SUCCESS"> & { idx: number };

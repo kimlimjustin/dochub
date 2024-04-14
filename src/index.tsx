@@ -21,12 +21,12 @@ import { Provider } from "react-redux";
 import App from "./App";
 import store from "./Store";
 
-import { fetchFavoritesRequest } from "./Store/ActionCreators/FavoritesActionCreators";
-import { fetchDrivesRequest } from "./Store/ActionCreators/DriveActionCreators";
-import { getOSRequest } from "./Store/ActionCreators/PlatformActionCreators";
-import { fetchFilesRequest, listenDirectoryRequest } from "./Store/ActionCreators/DirectoryActionCreators";
-import { readDataRequest } from "./Store/ActionCreators/StorageActionCreators";
 import { ThemeContext } from "./Components/Theme";
+import { fetchFilesRequest, listenDirectoryRequest } from "./Store/ActionCreators/DirectoryActionCreators";
+import { fetchDrivesRequest } from "./Store/ActionCreators/DriveActionCreators";
+import { fetchFavoritesRequest } from "./Store/ActionCreators/FavoritesActionCreators";
+import { getOSRequest } from "./Store/ActionCreators/PlatformActionCreators";
+import { readDataRequest } from "./Store/ActionCreators/StorageActionCreators";
 // Wait DOM Loaded to be loaded
 document.addEventListener("DOMContentLoaded", async () => {
     store.dispatch(getOSRequest());

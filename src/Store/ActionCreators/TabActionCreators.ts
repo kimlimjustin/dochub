@@ -1,4 +1,4 @@
-import { ITab, CreateTabSuccess, UpdateTabSuccess, DeleteTabSuccess, SetActiveTabSuccess } from "../../Typings/Store/tab";
+import type { CreateTabSuccess, DeleteTabSuccess, ITab, SetActiveTabSuccess, UpdateTabSuccess } from "../../Typings/Store/tab";
 
 export const createTab = (tab: ITab): CreateTabSuccess => ({
     type: "CREATE_TAB",

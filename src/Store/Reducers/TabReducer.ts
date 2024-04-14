@@ -1,7 +1,7 @@
 import omit from "lodash.omit";
 
-import { ITab, ITabReducerState } from "../../Typings/Store/tab";
-import { Actions } from "../../Typings/Store/store";
+import type { Actions } from "../../Typings/Store/store";
+import type { ITab, ITabReducerState } from "../../Typings/Store/tab";
 
 const defaultTab: ITab = {
     name: "Default Tab",
@@ -30,7 +30,7 @@ const reducer = (state = initialState, action: Actions): ITabReducerState => {
                     [action.tab.id]: action.tab,
                 },
             };
-        case "UPDATE_TAB":
+        case "UPDATE_TAB": {
             const newTabs: INewTabs = {};
             Object.entries(state.tabs).forEach(([name, tab]) => {
                 if (tab.id === action.tab.id) {
@@ -47,13 +47,15 @@ const reducer = (state = initialState, action: Actions): ITabReducerState => {
                 ...state,
                 tabs: newTabs,
             };
-        case "DELETE_TAB":
+        }
+        case "DELETE_TAB": {
             const newTabsList = omit(state.tabs, action.id);
             return {
                 ...state,
                 tabs: newTabsList,
                 activeTab: state.activeTab.id === action.id ? newTabsList[Object.keys(newTabsList)[0]] : state.activeTab,
             };
+        }
         case "SET_ACTIVE_TAB":
             return {
                 ...state,

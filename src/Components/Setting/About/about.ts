@@ -1,25 +1,25 @@
-import { getTauriVersion } from '@tauri-apps/api/app';
-import { version, description } from '../../../../package.json';
-import { os } from '@tauri-apps/api';
+import { os } from "@tauri-apps/api";
+import { getTauriVersion } from "@tauri-apps/api/app";
+import { description, version } from "../../../../package.json";
 
 // Copy text into clipboard
 const copyToClipboard = (text: string) => {
-	return `navigator.clipboard.writeText('${text}')`;
+    return `navigator.clipboard.writeText('${text}')`;
 };
 /**
  * Create about section
  * @returns {Promise<void>}
  */
 const About = async (): Promise<void> => {
-	const settingsMain = document.querySelector('.settings-main');
-	const tauriVersion = await getTauriVersion();
-	const platform = await os.platform();
-	const arch = await os.arch();
-	const osVersion = await os.version();
-	const aboutPage = `
+    const settingsMain = document.querySelector(".settings-main");
+    const tauriVersion = await getTauriVersion();
+    const platform = await os.platform();
+    const arch = await os.arch();
+    const osVersion = await os.version();
+    const aboutPage = `
 	<div class="settings-about">
 	<div class="settings-about-header">
-		<img src="${await require('../../../Icon/icon.png')}" />
+		<img src="${await require("../../../Icon/icon.png")}" />
 		<h1>Xplorer</h1>
 		<span class="settings-about-caption">${description}</span>
 	</div>
@@ -29,7 +29,7 @@ const About = async (): Promise<void> => {
 				<span>Version: </span><span>${version}</span
 				><span
 					data-tooltip="Copy"
-					onClick="${copyToClipboard('Version: ' + version)}"
+					onClick="${copyToClipboard(`Version: ${version}`)}"
 					>&#x2398;</span
 				>
 			</li>
@@ -37,7 +37,7 @@ const About = async (): Promise<void> => {
 				<span>Tauri version: </span><span>${tauriVersion}</span
 				><span
 					data-tooltip="Copy"
-					onClick="${copyToClipboard('Tauri version: ' + tauriVersion)}"
+					onClick="${copyToClipboard(`Tauri version: ${tauriVersion}`)}"
 					>&#x2398;</span
 				>
 			</li>
@@ -45,7 +45,7 @@ const About = async (): Promise<void> => {
 				<span>OS: </span><span>${platform} ${arch} ${osVersion}</span
 				><span
 					data-tooltip="Copy"
-					onClick="${copyToClipboard('OS: ' + platform + ' ' + arch + ' ' + osVersion)}"
+					onClick="${copyToClipboard(`OS: ${platform} ${arch} ${osVersion}`)}"
 					>&#x2398;</span
 				>
 			</li>
@@ -79,6 +79,6 @@ const About = async (): Promise<void> => {
 	</div>
 </div>
 `;
-	settingsMain.innerHTML = aboutPage;
+    settingsMain.innerHTML = aboutPage;
 };
 export default About;

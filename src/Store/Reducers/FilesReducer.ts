@@ -1,8 +1,8 @@
 import omit from "lodash.omit";
 import omitBy from "lodash.omitby";
 
-import { IFilesReducerState } from "../../Typings/Store/files";
-import { Actions } from "../../Typings/Store/store";
+import type { IFilesReducerState } from "../../Typings/Store/files";
+import type { Actions } from "../../Typings/Store/store";
 
 const initialState: IFilesReducerState = {
     buffers: {},

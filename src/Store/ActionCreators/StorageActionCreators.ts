@@ -1,62 +1,68 @@
-import {
-  ReadDataFailure, ReadDataRequest, ReadDataSuccess,
-  RemoveDataFailure, RemoveDataRequest, RemoveDataSuccess,
-  WriteDataFailure, WriteDataRequest, WriteDataSuccess
+import type {
+    ReadDataFailure,
+    ReadDataRequest,
+    ReadDataSuccess,
+    RemoveDataFailure,
+    RemoveDataRequest,
+    RemoveDataSuccess,
+    WriteDataFailure,
+    WriteDataRequest,
+    WriteDataSuccess,
 } from "../../Typings/Store/storage";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const writeDataRequest = (key: string, data: any): WriteDataRequest => ({
-  type: 'WRITE_DATA',
-  status: 'REQUEST',
-  key,
-  data
+    type: "WRITE_DATA",
+    status: "REQUEST",
+    key,
+    data,
 });
 
 export const writeDataSuccess = (): WriteDataSuccess => ({
-  type: 'WRITE_DATA',
-  status: 'SUCCESS'
+    type: "WRITE_DATA",
+    status: "SUCCESS",
 });
 
 export const writeDataFailure = (message: string): WriteDataFailure => ({
-  type: 'WRITE_DATA',
-  status: 'FAILURE',
-  message
+    type: "WRITE_DATA",
+    status: "FAILURE",
+    message,
 });
 
 export const readDataRequest = (key: string): ReadDataRequest => ({
-  type: 'READ_DATA',
-  status: 'REQUEST',
-  key
+    type: "READ_DATA",
+    status: "REQUEST",
+    key,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const readDataSuccess = (key: string, data: any): ReadDataSuccess => ({
-  type: 'READ_DATA',
-  status: 'SUCCESS',
-  key,
-  data
+    type: "READ_DATA",
+    status: "SUCCESS",
+    key,
+    data,
 });
 
 export const readDataFailure = (message: string): ReadDataFailure => ({
-  type: 'READ_DATA',
-  status: 'FAILURE',
-  message
+    type: "READ_DATA",
+    status: "FAILURE",
+    message,
 });
 
 export const removeDataRequest = (key: string): RemoveDataRequest => ({
-  type: 'REMOVE_DATA',
-  status: 'REQUEST',
-  key
+    type: "REMOVE_DATA",
+    status: "REQUEST",
+    key,
 });
 
 export const removeDataSuccess = (key: string): RemoveDataSuccess => ({
-  type: 'REMOVE_DATA',
-  status: 'SUCCESS',
-  key
+    type: "REMOVE_DATA",
+    status: "SUCCESS",
+    key,
 });
 
 export const removeDataFailure = (message: string): RemoveDataFailure => ({
-  type: 'REMOVE_DATA',
-  status: 'FAILURE',
-  message
+    type: "REMOVE_DATA",
+    status: "FAILURE",
+    message,
 });

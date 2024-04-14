@@ -1,5 +1,5 @@
-import { IRequestReducerState } from "../../Typings/Store/request";
-import { Actions } from "../../Typings/Store/store";
+import type { IRequestReducerState } from "../../Typings/Store/request";
+import type { Actions } from "../../Typings/Store/store";
 
 const initialState: IRequestReducerState = {};
 

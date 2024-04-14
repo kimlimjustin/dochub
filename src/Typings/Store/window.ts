@@ -1,6 +1,6 @@
-import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
+import type { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 
-import { AppActionBase } from "./actions";
+import type { AppActionBase } from "./actions";
 
 export interface IWindowReducerState {
     windows: Record<string, WebviewWindow>; // title -> window

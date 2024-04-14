@@ -1,26 +1,26 @@
-import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
-import {
+import type { WebviewWindow } from "@tauri-apps/api/webviewWindow";
+import type {
     ChangeWindowTitleFailure,
     ChangeWindowTitleRequest,
     ChangeWindowTitleSuccess,
+    CloseWindowFailure,
+    CloseWindowRequest,
+    CloseWindowSuccess,
     CreateNewWindowFailure,
     CreateNewWindowRequest,
     CreateNewWindowSuccess,
     ListenWindowCloseFailure,
     ListenWindowCloseRequest,
     ListenWindowCloseSuccess,
+    MaximizeWindowFailure,
+    MaximizeWindowRequest,
+    MaximizeWindowSuccess,
+    MinimizeWindowFailure,
+    MinimizeWindowRequest,
+    MinimizeWindowSuccess,
     SetDecorationsFailure,
     SetDecorationsRequest,
     SetDecorationsSuccess,
-    MaximizeWindowRequest,
-    MaximizeWindowSuccess,
-    MaximizeWindowFailure,
-    MinimizeWindowRequest,
-    MinimizeWindowSuccess,
-    MinimizeWindowFailure,
-    CloseWindowRequest,
-    CloseWindowSuccess,
-    CloseWindowFailure,
 } from "../../Typings/Store/window";
 
 export const listenWindowCloseRequest = (): ListenWindowCloseRequest => ({

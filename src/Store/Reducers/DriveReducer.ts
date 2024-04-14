@@ -1,5 +1,5 @@
-import { IDriveReducerState } from "../../Typings/Store/drive";
-import { Actions } from "../../Typings/Store/store";
+import type { IDriveReducerState } from "../../Typings/Store/drive";
+import type { Actions } from "../../Typings/Store/store";
 
 const initialState: IDriveReducerState = {
     drives: [],

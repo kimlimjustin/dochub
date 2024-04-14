@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export interface IHtmlViewerProps {
-  filePath: string
+    filePath: string;
 }
 
 const HtmlViewer = ({ filePath }: IHtmlViewerProps): JSX.Element => {
-  return (<div>pdf viewer: {filePath}</div>);
-}
+    return <div>pdf viewer: {filePath}</div>;
+};
 
 export default HtmlViewer;

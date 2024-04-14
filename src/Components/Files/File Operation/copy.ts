@@ -1,4 +1,4 @@
-import Storage from '../../../Service/storage';
+import Storage from "../../../Service/storage";
 /**
  * Copy (a) file/s
  *
@@ -6,7 +6,7 @@ import Storage from '../../../Service/storage';
  * @returns {void}
  */
 const Copy = (files: Array<string>): void => {
-	Storage.set('clipboard', { command: 'cp', files: files });
+    Storage.set("clipboard", { command: "cp", files: files });
 };
 
 export default Copy;

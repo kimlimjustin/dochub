@@ -1,5 +1,5 @@
-import { AppActionBase } from "./actions";
-import FileMetaData from "../fileMetaData";
+import type FileMetaData from "../fileMetaData";
+import type { AppActionBase } from "./actions";
 
 export interface TrashData {
     files: FileMetaData[];

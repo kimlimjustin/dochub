@@ -1,22 +1,24 @@
-import { UnlistenFn } from "@tauri-apps/api/event";
+import type { UnlistenFn } from "@tauri-apps/api/event";
 
-import {
-    IDirectoryMeta,
+import type {
     CancelDirectorySearchFailure,
     CancelDirectorySearchRequest,
     CancelDirectorySearchSuccess,
+    DirectorySearchPartialResultFailure,
+    DirectorySearchPartialResultSuccess,
     FetchDirectorySizeFailure,
     FetchDirectorySizeRequest,
     FetchDirectorySizeSuccess,
+    FetchFileExistsFailure,
+    FetchFileExistsRequest,
+    FetchFileExistsSuccess,
     FetchFilesFailure,
     FetchFilesRequest,
     FetchFilesSuccess,
     FetchIsDirectoryFailure,
     FetchIsDirectoryRequest,
     FetchIsDirectorySuccess,
-    FetchFileExistsFailure,
-    FetchFileExistsRequest,
-    FetchFileExistsSuccess,
+    IDirectoryMeta,
     InitDirectorySearchFailure,
     InitDirectorySearchRequest,
     InitDirectorySearchSuccess,
@@ -26,19 +28,17 @@ import {
     MakeDirectoryFailure,
     MakeDirectoryRequest,
     MakeDirectorySuccess,
+    PopHistorySuccess,
+    PushHistorySuccess,
     UnlistenDirectoryFailure,
     UnlistenDirectoryRequest,
     UnlistenDirectorySuccess,
-    DirectorySearchPartialResultSuccess,
-    DirectorySearchPartialResultFailure,
-    PushHistorySuccess,
-    PopHistorySuccess,
-    UpdateHistoryIdxSuccess,
-    UpdateHistoryIdxRequest,
     UpdateHistoryIdxFailure,
+    UpdateHistoryIdxRequest,
+    UpdateHistoryIdxSuccess,
 } from "../../Typings/Store/directory";
 
-import FileMetaData from "../../Typings/fileMetaData";
+import type FileMetaData from "../../Typings/fileMetaData";
 
 export const fetchFilesRequest = (dirName: string, pushToHistory = true): FetchFilesRequest => ({
     type: "FETCH_FILES",

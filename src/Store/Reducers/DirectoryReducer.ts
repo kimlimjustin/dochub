@@ -1,8 +1,8 @@
-import omit from "lodash.omit";
 import dropWhile from "lodash.dropwhile";
+import omit from "lodash.omit";
 
-import { IDirectoryReducerState } from "../../Typings/Store/directory";
-import { Actions } from "../../Typings/Store/store";
+import type { IDirectoryReducerState } from "../../Typings/Store/directory";
+import type { Actions } from "../../Typings/Store/store";
 
 const MAX_HISTORY_SIZE = 5;
 

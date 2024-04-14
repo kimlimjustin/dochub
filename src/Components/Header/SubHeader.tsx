@@ -1,6 +1,6 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { type FormEvent, useEffect, useState } from "react";
 
-import { ITab } from ".";
+import type { ITab } from ".";
 import { getParentDirectory } from "../../Helpers/paths";
 import { ThemedButton, ThemedDiv, ThemedInput } from "../Theme";
 
@@ -19,7 +19,7 @@ const SubHeader = ({ activeTab, handleBack, handleForward, handlePathChange, han
     useEffect(() => {
         if (JSON.stringify(activeTab) === JSON.stringify(tempTab)) return;
         setTempTab(activeTab);
-    }, [activeTab]);
+    }, [activeTab, tempTab]);
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -52,7 +52,12 @@ const SubHeader = ({ activeTab, handleBack, handleForward, handlePathChange, han
                 <ThemedButton
                     componentName="navigatorParentDir"
                     className="navigator-parent-dir"
-                    onClick={() => handlePathChange({ ...tempTab, path: getParentDirectory(tempTab.path) })}
+                    onClick={() =>
+                        handlePathChange({
+                            ...tempTab,
+                            path: getParentDirectory(tempTab.path),
+                        })
+                    }
                     // id="go-parent-dir"
                     title="Parent Directory (Alt + Up Arrow)"
                 >

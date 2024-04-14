@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
-import { IDrive, IUniqueDrive } from "../Typings/Store/drive";
+import type { IDrive, IUniqueDrive } from "../Typings/Store/drive";
 
 /**
  * List all user's drives

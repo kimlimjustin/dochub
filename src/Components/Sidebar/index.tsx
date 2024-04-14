@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setActiveTab, updateTab } from "../../Store/ActionCreators/TabActionCreators";
-import { IAppState } from "../../Store/Reducers";
-import { IFavoritesReducerState } from "../../Typings/Store/favorites";
+import type { IAppState } from "../../Store/Reducers";
+import type { IFavoritesReducerState } from "../../Typings/Store/favorites";
 
 import XplorerLogo from "../../Icon/extension/xplorer.svg";
 import FavoriteLogo from "../../Icon/folder/sidebar-favorite.svg";
@@ -48,7 +48,7 @@ const Sidebar = () => {
                                     onClick={() => navigateToPath(path)}
                                     key={path + name}
                                 >
-                                    <div className="sidebar-icon"></div>
+                                    <div className="sidebar-icon" />
                                     <ThemedSpan componentName="sidebarText" className="sidebar-text">
                                         {name}
                                     </ThemedSpan>
@@ -68,9 +68,10 @@ const Sidebar = () => {
                                 data-path={mount_point}
                                 className="sidebar-hover-effect sidebar-nav-item drive-item"
                                 onClick={() => navigateToPath(mount_point.replace(/\\/g, "/"))}
+                                onKeyUp={() => navigateToPath(mount_point.replace(/\\/g, "/"))}
                                 key={mount_point + name}
                             >
-                                <div className="sidebar-icon"></div>
+                                <div className="sidebar-icon" />
                                 <ThemedSpan componentName="sidebarText" className="sidebar-text">
                                     {name}
                                 </ThemedSpan>

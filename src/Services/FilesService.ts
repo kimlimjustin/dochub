@@ -1,10 +1,10 @@
+import { Buffer } from "node:buffer";
 import { invoke } from "@tauri-apps/api/core";
-import { copyFile as copyFileNative, rename as renameFileNative, remove as removeNative, readTextFile } from "@tauri-apps/plugin-fs";
 import { convertFileSrc } from "@tauri-apps/api/core";
-import { Buffer } from "buffer";
+import { copyFile as copyFileNative, readTextFile, remove as removeNative, rename as renameFileNative } from "@tauri-apps/plugin-fs";
 
-import FileMetaData from "../Typings/fileMetaData";
-import { TrashData, FileTrashMeta } from "../Typings/Store/files";
+import type { FileTrashMeta, TrashData } from "../Typings/Store/files";
+import type FileMetaData from "../Typings/fileMetaData";
 
 /**
  * Read text file
@@ -100,7 +100,7 @@ export const cutFile = async (fileName: string, dest: string): Promise<void> => 
  */
 export const removeFile = async (fileName: string): Promise<void> => {
     if (isDirectory(fileName)) return removeNative(fileName, { recursive: true });
-    else return removeNative(fileName);
+    return removeNative(fileName);
 };
 
 /**
