@@ -12,6 +12,7 @@ const Cut = (files: Array<string>): void => {
     }
 
     (async function detectClipboardChange() {
+        // biome-ignore lint/style/useConst: Recursively assigned
         let n: NodeJS.Timeout; //eslint-disable-line
         if ((await Storage.get("clipboard")).files !== files) {
             global.clearTimeout(n);
