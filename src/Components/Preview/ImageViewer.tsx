@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { JSX } from "react";
 
 export interface IImageViewerProps {
-  filePath: string
+    filePath: string;
 }
 
 const ImageViewer = ({ filePath }: IImageViewerProps): JSX.Element => {
-  return (<div>Image viewer: {filePath}</div>);
-}
+    return <div>Image viewer: {filePath}</div>;
+};
 
 export default ImageViewer;

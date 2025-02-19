@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, JSX } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import GridFile from "./GridFile";
@@ -53,13 +53,7 @@ export const File = ({ mode, metadata }: IFileProps): JSX.Element => {
             return;
         }
 
-        dispatch(
-            updateTab(activeTab.name, {
-                ...activeTab,
-                path: getStandardPath(filePath),
-                name: filePath.split("\\").pop() || "",
-            }),
-        );
+        dispatch(updateTab(activeTab.name, { ...activeTab, path: getStandardPath(filePath), name: filePath.split("\\").pop() || "" }));
         dispatch(setActiveTab({ name: filePath.split("\\").pop() || "", path: getStandardPath(filePath), id: activeTab.id }));
     };
 

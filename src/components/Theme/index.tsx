@@ -31,21 +31,13 @@ function applyStyles(theme: any, componentName: string) {
     return styles;
 }
 
-type ThemedSpanProps = {
-    componentName: string;
-} & HTMLAttributes<HTMLSpanElement>;
+type ThemedSpanProps = { componentName: string } & HTMLAttributes<HTMLSpanElement>;
 
-type ThemedDivProps = {
-    componentName: string;
-} & HTMLAttributes<HTMLDivElement>;
+type ThemedDivProps = { componentName: string } & HTMLAttributes<HTMLDivElement>;
 
-type ThemedButtonProps = {
-    componentName: string;
-} & HTMLAttributes<HTMLButtonElement>;
+type ThemedButtonProps = { componentName: string } & HTMLAttributes<HTMLButtonElement>;
 
-type ThemedInputProps = {
-    componentName: string;
-} & HTMLAttributes<HTMLInputElement>;
+type ThemedInputProps = { componentName: string } & HTMLAttributes<HTMLInputElement>;
 
 export const ThemedDiv = ({ componentName, children, ...rest }: PropsWithChildren<ThemedDivProps>) => {
     const { theme } = useContext(ThemeContext);

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { JSX } from "react";
 
 export interface IVideoViewerProps {
-  filePath: string
+    filePath: string;
 }
 
 const VideoViewer = ({ filePath }: IVideoViewerProps): JSX.Element => {
-  return (<div>Video viewer: {filePath}</div>);
-}
+    return <div>Video viewer: {filePath}</div>;
+};
 
 export default VideoViewer;

@@ -1,5 +1,5 @@
 import { UnlistenFn } from "@tauri-apps/api/event";
-import { getCurrent } from "@tauri-apps/api/window";
+import { listen } from "@tauri-apps/api/event";
 import { all, call, takeLatest } from "redux-saga/effects";
 
 import {
@@ -123,7 +123,7 @@ function* fetchDirectorySizeWorker(action: FetchDirectorySizeRequest) {
 
 function* directorySearchPartialResultWorker(callback: (partialResult: FileMetaData[]) => void) {
     try {
-        const listener: UnlistenFn = yield getCurrent().listen<FileMetaData[]>("search_partial_result", (event) => {
+        const listener: UnlistenFn = yield listen<FileMetaData[]>("search_partial_result", (event) => {
             callback(event.payload);
             put(directorySearchPartialResultSuccess(event.payload));
         });

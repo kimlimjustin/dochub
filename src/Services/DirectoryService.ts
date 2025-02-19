@@ -1,6 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 import { UnlistenFn } from "@tauri-apps/api/event";
-import { getCurrent } from "@tauri-apps/api/window";
+import { listen, emit } from "@tauri-apps/api/event";
 
 import FileMetaData from "../Typings/fileMetaData";
 import { IDirectoryMeta } from "../Typings/Store/directory";
@@ -36,7 +36,7 @@ export const makeDirectory = async (dirPath: string): Promise<boolean> => invoke
  * @returns {}
  */
 export const listenDirectory = (callback: (dirPath: string) => void = () => undefined) => {
-    getCurrent().listen("dir_change", (e: { payload: { path: string } }) => {
+    listen("dir_change", (e: { payload: { path: string } }) => {
         const path = e.payload.path;
         const parent_path = path.split("/").slice(0, -1).join("/") + "/";
         callback(parent_path);
@@ -49,7 +49,7 @@ export const listenDirectory = (callback: (dirPath: string) => void = () => unde
  */
 export const unlistenDirectory = async (listener: UnlistenFn): Promise<void> => {
     listener();
-    getCurrent().emit("unlisten_dir");
+    emit("unlisten_dir");
 };
 
 /**
@@ -73,6 +73,6 @@ export const initDirectorySearch = async (dirName: string, pattern: string): Pro
  */
 export const cancelDirectorySearch = async (searchListener: UnlistenFn): Promise<boolean> => {
     searchListener?.();
-    await getCurrent().emit("unsearch");
+    await emit("unsearch");
     return !!searchListener;
 };

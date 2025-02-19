@@ -1,25 +1,11 @@
 {
     "productName": "Xplorer",
     "version": "0.3.1",
-    "build": {
-        "frontendDist": "../out/src",
-        "devUrl": "http://localhost:1234",
-        "beforeDevCommand": "",
-        "beforeBuildCommand": ""
-    },
+    "identifier": "com.xplorer",
+    "build": { "frontendDist": "../out/src", "devUrl": "http://localhost:1234", "beforeDevCommand": "", "beforeBuildCommand": "" },
     "app": {
-        "windows": [
-            {
-                "title": "Xplorer",
-                "width": 1000,
-                "height": 600,
-                "decorations": false,
-                "transparent": true
-            }
-        ],
-        "security": {
-            "csp": null
-        }
+        "windows": [{ "title": "Xplorer", "width": 1000, "height": 600, "decorations": false, "transparent": true }],
+        "security": { "csp": null }
     },
     "bundle": {
         "active": true,

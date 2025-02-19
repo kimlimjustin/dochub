@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setActiveTab, updateTab } from "../../Store/ActionCreators/TabActionCreators";

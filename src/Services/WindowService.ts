@@ -1,31 +1,28 @@
 import { event, window } from "@tauri-apps/api";
 import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 
 export const listenWindowClose = async (): Promise<void> => new Promise((resolve) => event.listen("tauri://close-requested", () => resolve()));
 
 export const createNewWindow = (title = "Xplorer"): WebviewWindow =>
-    new WebviewWindow(Math.random().toString(), {
-        decorations: false,
-        transparent: true,
-        title,
-    });
+    new WebviewWindow(Math.random().toString(), { decorations: false, transparent: true, title });
 
 export const changeWindowTitle = (title: string): void => {
-    window.getCurrent().setTitle(`${title} - Xplorer`);
+    getCurrentWindow().setTitle(`${title} - Xplorer`);
 };
 
 export const setDecorations = (decorations: boolean): void => {
-    window.getCurrent().setDecorations(decorations);
+    getCurrentWindow().setDecorations(decorations);
 };
 
 export const maximizeWindow = (): void => {
-    window.getCurrent().maximize();
+    getCurrentWindow().maximize();
 };
 
 export const minimizeWindow = (): void => {
-    window.getCurrent().minimize();
+    getCurrentWindow().minimize();
 };
 
 export const closeWindow = (): void => {
-    window.getCurrent().close();
+    getCurrentWindow().close();
 };

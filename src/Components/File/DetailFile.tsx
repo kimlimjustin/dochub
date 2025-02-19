@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, JSX } from "react";
 import FileMetaData from "../../Typings/fileMetaData";
 import { ThemedButton, ThemedSpan } from "../Theme";
 import { useSelector } from "react-redux";
